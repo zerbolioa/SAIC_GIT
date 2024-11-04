@@ -145,13 +145,12 @@ table 'Performance Data'
 
 	column HandleTime
 		dataType: double
+		formatString: 0.000000
 		lineageTag: c83dcec2-b807-4d10-8522-fe514d2c4322
 		summarizeBy: sum
 		sourceColumn: HandleTime
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Date
 		dataType: dateTime
@@ -237,8 +236,6 @@ table 'Performance Data'
 				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
 				in
 				    #"Filtered Rows"
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 
