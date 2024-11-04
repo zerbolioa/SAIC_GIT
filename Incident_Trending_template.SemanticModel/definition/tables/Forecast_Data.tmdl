@@ -1,0 +1,60 @@
+table Forecast_Data
+	lineageTag: e981337f-5150-486c-934f-1b6b39b1c2ae
+
+	measure _mCallsForecast = SUM(Forecast_Data[Volume])
+		lineageTag: 12fc001d-db1f-4c50-a963-58046c6d9104
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 04ec814a-4521-4703-9754-680f3d105d5f
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Interval
+		dataType: string
+		lineageTag: 0e542296-eda4-4a2a-9e0c-9cb89f0273dc
+		summarizeBy: none
+		sourceColumn: Interval
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: f7e16955-72c2-4244-b656-f123d8b621f0
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Volume
+		dataType: double
+		lineageTag: 4e86a383-5e94-477d-b53a-c1656ccd23d9
+		summarizeBy: sum
+		sourceColumn: Volume
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Forecast_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Forecast"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date", type date}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Source", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Source", Text.Clean, type text}})
+				in
+				    #"Cleaned Text"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

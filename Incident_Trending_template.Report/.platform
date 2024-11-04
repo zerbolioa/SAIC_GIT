@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Incident_Trending_template"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "36b859db-8045-451d-915f-6083ce824346"
+  }
+}

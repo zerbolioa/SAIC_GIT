@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Incident_Trending_template.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

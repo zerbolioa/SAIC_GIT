@@ -1,0 +1,244 @@
+table 'Performance Data'
+	lineageTag: e47ec4bc-d235-41a1-ad16-06dc1d7ad52a
+
+	column Contact_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f93e741-d7c4-49ca-8ec9-4a19d86d10da
+		summarizeBy: none
+		sourceColumn: Contact_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Master_Contact_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ed3e720d-7a64-465c-8cab-0e1d5b9e3b0f
+		summarizeBy: count
+		sourceColumn: Master_Contact_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contact_Code
+		dataType: int64
+		formatString: 0
+		lineageTag: 0be69ea7-1872-4640-83a8-717c903014e7
+		summarizeBy: count
+		sourceColumn: Contact_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Agent_Name
+		dataType: string
+		lineageTag: cdc9c717-b2c7-4779-9ca2-adb0bf722d60
+		summarizeBy: none
+		sourceColumn: Agent_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hold_Time
+		dataType: double
+		lineageTag: cf7868fb-105b-40ad-ac45-c74a984dfa99
+		summarizeBy: sum
+		sourceColumn: Hold_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Handle_Time
+		dataType: double
+		lineageTag: 10d0cb99-a213-4e7f-a774-7e936ddf42b0
+		summarizeBy: sum
+		sourceColumn: Handle_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DateInterval
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 36958e49-1067-43a9-b1a6-f9036abe93b2
+		summarizeBy: none
+		sourceColumn: DateInterval
+
+		variation Variation
+			isDefault
+			relationship: a09b4964-3208-4be8-8ec2-5fadd589739e
+			defaultHierarchy: LocalDateTable_40228adc-38fa-495d-b9ff-593d2d3e4121.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Offered
+		dataType: int64
+		formatString: 0
+		lineageTag: f0d5257c-9f75-4bc4-a854-ff91de1a04aa
+		summarizeBy: sum
+		sourceColumn: Offered
+
+		annotation SummarizationSetBy = Automatic
+
+	column Answered
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bd4ca93-305d-4824-8519-80a0d2c12685
+		summarizeBy: sum
+		sourceColumn: Answered
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnsBef120
+		dataType: int64
+		formatString: 0
+		lineageTag: 087ad04e-a516-4a22-8224-1e09a11c9adf
+		summarizeBy: sum
+		sourceColumn: AnsBef120
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnsAft120
+		dataType: int64
+		formatString: 0
+		lineageTag: 4560e130-3653-4ee1-b48a-985f5df0c22c
+		summarizeBy: sum
+		sourceColumn: AnsAft120
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abandoned
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ad8bab4-f8ab-4906-a49d-8dd28cb02943
+		summarizeBy: sum
+		sourceColumn: Abandoned
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortAbandon
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d892ba4-fb66-48b9-9762-22ae3f741716
+		summarizeBy: sum
+		sourceColumn: ShortAbandon
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrueAbandon
+		dataType: int64
+		formatString: 0
+		lineageTag: e8753bf7-ab7f-4bc0-ade0-c3bd9aadd297
+		summarizeBy: sum
+		sourceColumn: TrueAbandon
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpeedToAnswer
+		dataType: double
+		lineageTag: 5c1b1943-ea54-425e-93bc-3192d818520f
+		summarizeBy: sum
+		sourceColumn: SpeedToAnswer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HandleTime
+		dataType: double
+		lineageTag: c83dcec2-b807-4d10-8522-fe514d2c4322
+		summarizeBy: sum
+		sourceColumn: HandleTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1f28a66e-3fca-49e4-a90c-7ae48056c7cf
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: dc076c61-4172-4ee7-a22e-713a01406632
+			defaultHierarchy: LocalDateTable_d4d412e9-0d87-4451-847e-1cf37ca0ff72.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Interval
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: bc64f364-8b73-45f9-8824-71d588741717
+		summarizeBy: none
+		sourceColumn: Interval
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column Month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a56e1753-7cb0-4b49-9cd6-725a3276f46e
+		summarizeBy: none
+		sourceColumn: Month
+
+		variation Variation
+			isDefault
+			relationship: 6655d9b2-9231-44a5-bbfe-76ff330dc844
+			defaultHierarchy: LocalDateTable_21190527-c52b-4e8c-bc1c-dd4f2dc8b191.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Week
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 88ff49ae-42b6-485e-9bc5-608279b46977
+		summarizeBy: none
+		sourceColumn: Week
+
+		variation Variation
+			isDefault
+			relationship: 2a5003ae-f231-400a-b8fe-450526b509ea
+			defaultHierarchy: LocalDateTable_c19e756b-2bab-4163-ad6b-d6f67bc0fa59.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DayOfWeek
+		dataType: string
+		lineageTag: 8e0187b4-b275-47e1-82f9-c6a78de7b638
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 8578845b-f6f0-4308-96a0-9903be681866
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Performance Data' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("usm-sqlp-01", "USMS", [Query="sp_GetTrendData_ACD_v03"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date", type date}, {"Month", type date}, {"Week", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

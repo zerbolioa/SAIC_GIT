@@ -1,0 +1,528 @@
+table 'Incident Trending'
+	lineageTag: 15e0f942-4613-4dad-b664-9cd26a4e3565
+
+	measure '.M_INC Count' = COUNT('Incident Trending'[Incident])
+		formatString: 0
+		lineageTag: 5b04a845-4d84-49ba-8cb1-38943dfa179c
+
+	measure '.M_FCR Count' = CALCULATE(SUM('Incident Trending'[FCR Met]))
+		formatString: 0
+		lineageTag: 769fde99-4b34-416a-ae4c-dd9a45377ce9
+
+	measure '.M_Abandon Count' = SUM('Performance Data'[TrueAbandon])
+		formatString: 0
+		lineageTag: 0ba976e0-48a5-4ad0-85cb-c9d56afff0b7
+
+	measure '.M_Abandon %' = DIVIDE('Incident Trending'[.M_Abandon Count],SUM('Performance Data'[Offered]))
+		lineageTag: 3f97ba9f-ee2c-450d-a52b-b2f11aa8b120
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_Answered %' = DIVIDE(SUM('Performance Data'[Answered]),SUM('Performance Data'[Offered]))
+		lineageTag: a35d02a9-bcca-426e-8106-99a6c2a555e7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_FCR %' = DIVIDE(SUM('Incident Trending'[FCR Met]),[.M_Total Calls])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6fe866bb-570b-493d-83fd-1c66ce7d67ca
+
+	measure '.M_Total Calls' = SUM('Performance Data'[Offered])
+		formatString: 0
+		lineageTag: 450980d5-d563-47b9-8334-8dac81fbbbbd
+
+	measure '.M_ABT_120 %' = DIVIDE(SUM('Performance Data'[AnsBef120]), SUM('Performance Data'[Offered]))
+		lineageTag: d98a1384-5c1b-41ad-8c63-20c66f204ea8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_INC %' = DIVIDE('Incident Trending'[.M_INC Count],SUM('Performance Data'[Offered]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ad52bc41-4e54-4b39-a6f2-8c55fe81a63c
+
+	measure '.M_LastWeek_INC %' =
+			
+			VAR lastWeekINCPer =
+			    CALCULATE (
+			        [.M_INC Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekINCPer
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 643fece9-e9d5-4604-8caf-50984a49ad18
+
+	measure '.M_LastWeek_INC Count' =
+			
+			VAR lastWeekINCAmount =
+			    CALCULATE (
+			        [.M_INC Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekINCAmount
+		formatString: 0
+		lineageTag: 91c2a47f-6d98-4017-8c49-df1e7c01d6b5
+
+	measure 'VAR lastWeekFCR' = ```
+			
+			    CALCULATE (
+			        [.M_FCR Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekFCR
+			```
+		lineageTag: 5d9fb6ff-f904-4863-a086-dfbfad2946e9
+
+	measure '.M_LastWeekFCR Count' =
+			
+			VAR lastWeekFCRCount =
+			    CALCULATE (
+			        SUM('Incident Trending'[FCR Met]),
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekFCRCount
+		formatString: 0
+		lineageTag: cb690ed8-b72a-4b15-bd56-3dc12dbf9577
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MonthOverMonth"
+				}
+
+		changedProperty = FormatString
+
+	measure '.M_LastWeek_FCR %' =
+			
+			VAR lastWeekFCRPer =
+			    CALCULATE (
+			        [.M_FCR Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekFCRPer
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0b680a35-5119-4439-a349-14017769334f
+
+	column Incident
+		dataType: string
+		lineageTag: c2a07771-faf7-4cf0-a230-dda20dd8b446
+		summarizeBy: none
+		sourceColumn: Incident
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ServiceNow ID'
+		dataType: string
+		lineageTag: 8d714a92-a759-49b7-96cd-7764fcd58cf6
+		summarizeBy: none
+		sourceColumn: ServiceNow ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_type
+		dataType: string
+		lineageTag: 959ace27-c372-4632-a4d9-9ed065b58fc8
+		summarizeBy: none
+		sourceColumn: contact_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column opened_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9ed8bb09-a7d8-4e6c-b392-468ce416626d
+		summarizeBy: none
+		sourceColumn: opened_at
+
+		variation Variation
+			isDefault
+			relationship: de3016b3-d476-4c14-a3d7-d89f97130701
+			defaultHierarchy: LocalDateTable_b5afd30a-2c34-4e92-b4fd-6420e701b979.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 7522d9fd-e779-4d7f-95c5-abe2a6dde6b6
+		summarizeBy: none
+		sourceColumn: OpenTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column OpenedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ed8fff6e-ff3f-4535-89ae-b066503b75d8
+		summarizeBy: none
+		sourceColumn: OpenedDate
+
+		variation Variation
+			isDefault
+			relationship: 05091328-8b3f-479c-b943-b4448fdc00cc
+			defaultHierarchy: LocalDateTable_36b907eb-93f7-4e27-99d8-c0a6ca903edc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OpenedWeek
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4abcc21f-75c4-4f02-99db-47c9576ca586
+		summarizeBy: none
+		sourceColumn: OpenedWeek
+
+		variation Variation
+			isDefault
+			relationship: f4412e47-8ab5-49c1-9e5d-989d5a63106c
+			defaultHierarchy: LocalDateTable_9b2b518e-33ac-4448-8327-9879176f1f0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OpenedMonth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4f1621e1-b253-4536-9c40-d6ca4187b5fa
+		summarizeBy: none
+		sourceColumn: OpenedMonth
+
+		variation Variation
+			isDefault
+			relationship: e85117f4-e119-4c15-905f-dc475f856c09
+			defaultHierarchy: LocalDateTable_b5e1911c-8586-4b48-a9da-93aa86bed87d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClosedTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 803b9e16-ddd5-4f02-a958-a310165bc7ff
+		summarizeBy: none
+		sourceColumn: ClosedTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column ClosedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 10fd9029-9ca5-4e87-9578-9a7dbbc65184
+		summarizeBy: none
+		sourceColumn: ClosedDate
+
+		variation Variation
+			isDefault
+			relationship: bf7234ec-828e-44d6-bfc0-8704e1f420d9
+			defaultHierarchy: LocalDateTable_b4a8a65c-7bdf-472b-8e91-b8f533e451d9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClosedWeek
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8fb068c9-aaab-4e3b-99d7-8f055ee4a789
+		summarizeBy: none
+		sourceColumn: ClosedWeek
+
+		variation Variation
+			isDefault
+			relationship: 8bba5d2f-151e-4439-9017-38860261854e
+			defaultHierarchy: LocalDateTable_61578493-2955-4a40-9d1c-9b4de6e656ec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClosedMonth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8e7d88e9-6e11-4823-b477-a296a5ff4cc3
+		summarizeBy: none
+		sourceColumn: ClosedMonth
+
+		variation Variation
+			isDefault
+			relationship: 2a35e822-3aa9-48bd-b835-51399a06053b
+			defaultHierarchy: LocalDateTable_1d15c6bf-1a17-4cee-9aab-2c5963e2efa1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Category
+		dataType: string
+		lineageTag: a5bd691f-3def-46af-a849-de92954abb6f
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 0e0b403f-8f4d-4bde-95e7-8d2cad479714
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Affected Item'
+		dataType: string
+		lineageTag: 78ffd2d1-c911-4efc-86e9-e6cd3aa76db7
+		summarizeBy: none
+		sourceColumn: Affected Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Severity
+		dataType: string
+		lineageTag: f251b580-d605-4440-92c9-598a237a731e
+		summarizeBy: none
+		sourceColumn: Severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Caller State'
+		dataType: string
+		lineageTag: c13dafa5-3c80-447e-a8a3-eb4afca3b3a1
+		summarizeBy: none
+		sourceColumn: Caller State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Caller Location'
+		dataType: string
+		lineageTag: e0d659f6-5ce1-49ae-8e24-f3f68b1e3f2a
+		summarizeBy: none
+		sourceColumn: Caller Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Caller District_Division'
+		dataType: string
+		lineageTag: 453447a4-b13b-4cd5-98d8-d957534fa2b7
+		summarizeBy: none
+		sourceColumn: Caller District_Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Caller VIP'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 22d3a932-17b0-4844-aecd-8a4629d08b82
+		summarizeBy: none
+		sourceColumn: Caller VIP
+
+		annotation SummarizationSetBy = Automatic
+
+	column u_first_call_resolution
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4ef93e35-f025-494d-834c-760039735923
+		summarizeBy: none
+		sourceColumn: u_first_call_resolution
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Subcategory'
+		dataType: string
+		lineageTag: 6f3152a4-0c2f-48b1-84d4-ecdb56fc32b0
+		summarizeBy: none
+		sourceColumn: Functional Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Category'
+		dataType: string
+		lineageTag: 9c503fb8-2d50-4226-9777-74b9a7af6e5e
+		summarizeBy: none
+		sourceColumn: Functional Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column FCR
+		dataType: string
+		lineageTag: 7a5cd498-c9b5-4324-be9c-0625af441c2d
+		summarizeBy: none
+		sourceColumn: FCR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SS_Create
+		dataType: int64
+		formatString: 0
+		lineageTag: a6da4119-f2f2-455a-89c6-fd018ffa981b
+		summarizeBy: sum
+		sourceColumn: SS_Create
+
+		annotation SummarizationSetBy = Automatic
+
+	column Updates
+		dataType: int64
+		formatString: 0
+		lineageTag: 12ad81a0-3a77-45d5-afef-d12bcae0682f
+		summarizeBy: sum
+		sourceColumn: Updates
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		dataType: string
+		lineageTag: 7382d54b-71a8-4957-91ef-084fadd2bd0c
+		summarizeBy: none
+		sourceColumn: Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekend
+		dataType: string
+		lineageTag: f6c4b791-bfd7-471b-a205-0f84325dec5e
+		summarizeBy: none
+		sourceColumn: Weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Group'
+		dataType: string
+		lineageTag: 190acf94-5ca1-4265-a0bc-1a7b48c493d9
+		summarizeBy: none
+		sourceColumn: Assignment Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Description'
+		dataType: string
+		lineageTag: 53855d2a-be12-4131-b8da-c5314a5632ea
+		summarizeBy: none
+		sourceColumn: Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Incident Status'
+		dataType: string
+		lineageTag: 0eda8199-73cc-480b-ae29-d7b8f97cfc2f
+		summarizeBy: none
+		sourceColumn: Incident Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column sys_updated_on
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 59f8daf7-2b40-4b38-99c2-960e853ceb1a
+		summarizeBy: none
+		sourceColumn: sys_updated_on
+
+		variation Variation
+			isDefault
+			relationship: f391d311-d557-42cd-b3c5-c570fdcb017f
+			defaultHierarchy: LocalDateTable_96ee4d75-aed7-43cc-9532-8e6a2ffdfb8a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grouping
+		dataType: string
+		lineageTag: 64e8c5d1-b7a3-4a11-8d55-2e06bdaa553a
+		summarizeBy: none
+		sourceColumn: Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Incident'
+		dataType: string
+		lineageTag: 95a9d382-d0c1-4580-bb01-d82a678a83d8
+		summarizeBy: none
+		sourceColumn: Parent Incident
+
+		annotation SummarizationSetBy = Automatic
+
+	column Has_Parent
+		dataType: int64
+		formatString: 0
+		lineageTag: deadd394-ca63-424a-a1d9-d8b26ae293b8
+		summarizeBy: sum
+		sourceColumn: Has_Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FCR Met'
+		dataType: int64
+		formatString: 0
+		lineageTag: 11ae4334-3294-4dac-986e-08a30600a2e3
+		summarizeBy: sum
+		sourceColumn: FCR Met
+
+		annotation SummarizationSetBy = Automatic
+
+	column VIP
+		dataType: string
+		lineageTag: 568682c4-c941-403f-91bc-a71ec9b784b4
+		summarizeBy: none
+		sourceColumn: VIP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Has Grouping'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a8a83c2-22c3-4e14-990d-907157361e8f
+		summarizeBy: sum
+		sourceColumn: Has Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Incident Trending' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("usm-sqlp-01", "USMS", [Query="sp_GetTrendData_INC_v03"]),
+				    #"Trimmed Text" = Table.TransformColumns(Source,{{"Incident", Text.Trim, type text}, {"sys_created_by", Text.Trim, type text}, {"contact_type", Text.Trim, type text}, {"category", Text.Trim, type text}, {"subcategory", Text.Trim, type text}, {"u_affected_item", Text.Trim, type text}, {"severity", Text.Trim, type text}, {"caller_id#state", Text.Trim, type text}, {"caller_id#location", Text.Trim, type text}, {"caller_id#u_district_division", Text.Trim, type text}, {"u_func_subcat", Text.Trim, type text}, {"u_functional_category", Text.Trim, type text}, {"FCR", Text.Trim, type text}, {"Weekday", Text.Trim, type text}, {"Weekend", Text.Trim, type text}, {"assignment_group", Text.Trim, type text}, {"short_description", Text.Trim, type text}, {"State", Text.Trim, type text}, {"Grouping", Text.Trim, type text}, {"Parent_Inc", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Incident", Text.Clean, type text}, {"sys_created_by", Text.Clean, type text}, {"contact_type", Text.Clean, type text}, {"category", Text.Clean, type text}, {"subcategory", Text.Clean, type text}, {"u_affected_item", Text.Clean, type text}, {"severity", Text.Clean, type text}, {"caller_id#state", Text.Clean, type text}, {"caller_id#location", Text.Clean, type text}, {"caller_id#u_district_division", Text.Clean, type text}, {"u_func_subcat", Text.Clean, type text}, {"u_functional_category", Text.Clean, type text}, {"FCR", Text.Clean, type text}, {"Weekday", Text.Clean, type text}, {"Weekend", Text.Clean, type text}, {"assignment_group", Text.Clean, type text}, {"short_description", Text.Clean, type text}, {"State", Text.Clean, type text}, {"Grouping", Text.Clean, type text}, {"Parent_Inc", Text.Clean, type text}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Cleaned Text",{{"OpenedDate", type date}, {"OpenedWeek", type date}, {"OpenedMonth", type date}, {"ClosedDate", type date}, {"ClosedWeek", type date}, {"ClosedMonth", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"caller_id#state", "Caller State"}, {"caller_id#location", "Caller Location"}, {"caller_id#u_district_division", "Caller District_Division"}, {"caller_id#vip", "Caller VIP"}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Renamed Columns", "FCR Met", each if [FCR] = "Y" then 1 else 0),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"FCR Met", Int64.Type}}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Changed Type1", "VIP", each if [Caller VIP] = true then 1 else 0),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Conditional Column1",{{"sys_created_by", "ServiceNow ID"}, {"category", "Category"}, {"subcategory", "Subcategory"}, {"u_affected_item", "Affected Item"}, {"severity", "Severity"}, {"u_func_subcat", "Functional Subcategory"}, {"u_functional_category", "Functional Category"}, {"assignment_group", "Assignment Group"}, {"short_description", "Short Description"}, {"State", "Incident Status"}, {"Parent_Inc", "Parent Incident"}}),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Renamed Columns1", "Has Grouping", each if [Grouping] = "No Group" then 0 else 1),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Conditional Column2",{{"Has Grouping", Int64.Type}})
+				in
+				    #"Changed Type2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

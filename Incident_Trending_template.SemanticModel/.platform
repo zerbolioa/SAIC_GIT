@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Incident_Trending_template"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fee787a8-bf3b-4336-aa27-04b2305c4bb6"
+  }
+}

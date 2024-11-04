@@ -1,0 +1,12 @@
+expression Agent_Log_Data =
+		let
+		    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Agent_Log"]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Interval", type time}, {"Date", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: 371b4233-1ee3-4d55-9d29-93654138778d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

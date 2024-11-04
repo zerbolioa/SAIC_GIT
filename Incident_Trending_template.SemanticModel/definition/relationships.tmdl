@@ -1,0 +1,168 @@
+relationship e0cba0d9-b6ad-45e6-b989-216779caae21
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Incident_Data.Opened
+	toColumn: LocalDateTable_b04b8399-71da-48f9-928f-65157c447413.Date
+
+relationship a61e602e-003b-45d8-8e94-31c3d88390d9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Incident_Data.Created_On
+	toColumn: LocalDateTable_c266b877-49bd-4a3a-8e9b-2db518e22cb9.Date
+
+relationship a6455688-c44d-4e00-ba80-5d5a235fdd6b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Incident_Data.Updated
+	toColumn: LocalDateTable_2999ad3f-5162-446a-a3a4-5cd7877955e8.Date
+
+relationship 4cdc1a80-efbe-c5b6-2bdf-1496186e7c22
+	fromColumn: ACD_Data.Start_Date
+	toColumn: Calendar_Data.TheDate
+
+relationship c4da15c0-fdb4-eeb7-2c90-bf037f131e4e
+	fromColumn: Forecast_Data.Date
+	toColumn: Calendar_Data.TheDate
+
+relationship e952426a-58b5-6d1a-e319-5cc3086c1e07
+	fromColumn: Forecast_Data.Interval
+	toColumn: Interval_Data.Start
+
+relationship 4df774f6-fa17-eafe-c580-683848105987
+	fromColumn: ACD_Data.Interval_ACD
+	toColumn: Interval_Data.Start
+
+relationship 2bd95b12-feb2-1c73-ae7f-02a83d4329c4
+	fromColumn: Incident_Data.Date_ACD
+	toColumn: Calendar_Data.TheDate
+
+relationship 315bdee3-3553-a945-118a-fe2f921adec9
+	fromColumn: Incident_Data.Interval_INC
+	toColumn: Interval_Data.Start
+
+relationship 6564526b-c513-e804-e8a7-060cc8f1d7e3
+	fromColumn: ACD_Data.Agent_No
+	toColumn: Agent_Data.'New Platform inContact ID'
+
+relationship 65dfd79e-a7ea-4307-ade9-23ef518d9a36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.Start
+	toColumn: LocalDateTable_a0956026-4ac7-4b4a-8203-a8f1a43e9a62.Date
+
+relationship 46fe635b-64de-411e-9335-f224c8a1b9f5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.End
+	toColumn: LocalDateTable_780c6097-63b1-487c-810f-9ae995989ca4.Date
+
+relationship 29114944-ec48-40af-aa02-84b7d86f48b7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.'Actual Down-Time Window Start'
+	toColumn: LocalDateTable_97d9d5ab-697a-4bc0-951a-80f47291804a.Date
+
+relationship df756d92-f747-4197-999c-b93a6dd94663
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.'Actual Down-Time Window End'
+	toColumn: LocalDateTable_f32ce9e3-4616-4940-9a84-bfa9af073ee2.Date
+
+relationship 88c3b202-8718-4432-89c2-73a6ec6088e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.Updated
+	toColumn: LocalDateTable_76b0b770-e80d-4376-933f-108122d18a75.Date
+
+relationship c8b70169-03a4-4c9f-a94f-88c500b9ca1f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Outage_Data.Created
+	toColumn: LocalDateTable_8251e0e8-5fbf-4b5c-bf1b-015e0165d718.Date
+
+relationship 55ef2255-7636-1c1c-a664-0c093f33ee54
+	fromColumn: Outage_Data.'Related Incidents'
+	toColumn: Incident_Data.Incident
+
+relationship e6f632d2-51fc-4861-90fc-a9e2d8610fd6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Map_ACD_INC.Call_Start
+	toColumn: LocalDateTable_7544f9ed-36d6-4dd9-bbbe-480987d04470.Date
+
+relationship 0a31e805-4012-489b-8e14-99032bc93451
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Map_ACD_INC.Call_Complete
+	toColumn: LocalDateTable_1d24ad1d-9989-410a-b3ed-9143f5353795.Date
+
+relationship 8fdeb823-20eb-4b4c-5421-d34810e77bb0
+	crossFilteringBehavior: bothDirections
+	fromColumn: Map_ACD_INC.Contact_ID
+	toColumn: ACD_Data.Contact_ID
+
+relationship de3016b3-d476-4c14-a3d7-d89f97130701
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.opened_at
+	toColumn: LocalDateTable_b5afd30a-2c34-4e92-b4fd-6420e701b979.Date
+
+relationship f4412e47-8ab5-49c1-9e5d-989d5a63106c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.OpenedWeek
+	toColumn: LocalDateTable_9b2b518e-33ac-4448-8327-9879176f1f0c.Date
+
+relationship e85117f4-e119-4c15-905f-dc475f856c09
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.OpenedMonth
+	toColumn: LocalDateTable_b5e1911c-8586-4b48-a9da-93aa86bed87d.Date
+
+relationship bf7234ec-828e-44d6-bfc0-8704e1f420d9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.ClosedDate
+	toColumn: LocalDateTable_b4a8a65c-7bdf-472b-8e91-b8f533e451d9.Date
+
+relationship 8bba5d2f-151e-4439-9017-38860261854e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.ClosedWeek
+	toColumn: LocalDateTable_61578493-2955-4a40-9d1c-9b4de6e656ec.Date
+
+relationship 2a35e822-3aa9-48bd-b835-51399a06053b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.ClosedMonth
+	toColumn: LocalDateTable_1d15c6bf-1a17-4cee-9aab-2c5963e2efa1.Date
+
+relationship f391d311-d557-42cd-b3c5-c570fdcb017f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.sys_updated_on
+	toColumn: LocalDateTable_96ee4d75-aed7-43cc-9532-8e6a2ffdfb8a.Date
+
+relationship AutoDetected_d3e0cf6f-7c76-4f11-a63e-2e364676750a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Incident_Data.Incident
+	toColumn: 'Incident Trending'.Incident
+
+relationship 58e21ed2-ed73-19d9-ef19-c39c3ac72f41
+	fromColumn: 'Incident Trending'.'ServiceNow ID'
+	toColumn: Agent_Data.'ServiceNow ID'
+
+relationship a09b4964-3208-4be8-8ec2-5fadd589739e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Performance Data'.DateInterval
+	toColumn: LocalDateTable_40228adc-38fa-495d-b9ff-593d2d3e4121.Date
+
+relationship 6655d9b2-9231-44a5-bbfe-76ff330dc844
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Performance Data'.Month
+	toColumn: LocalDateTable_21190527-c52b-4e8c-bc1c-dd4f2dc8b191.Date
+
+relationship 2a5003ae-f231-400a-b8fe-450526b509ea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Performance Data'.Week
+	toColumn: LocalDateTable_c19e756b-2bab-4163-ad6b-d6f67bc0fa59.Date
+
+relationship AutoDetected_c5528a74-fea9-4740-945a-7ab29cb65f49
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: ACD_Data.Contact_ID
+	toColumn: 'Performance Data'.Contact_ID
+
+relationship 05091328-8b3f-479c-b943-b4448fdc00cc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Incident Trending'.OpenedDate
+	toColumn: LocalDateTable_36b907eb-93f7-4e27-99d8-c0a6ca903edc.Date
+
+relationship dc076c61-4172-4ee7-a22e-713a01406632
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Performance Data'.Date
+	toColumn: LocalDateTable_d4d412e9-0d87-4451-847e-1cf37ca0ff72.Date
+

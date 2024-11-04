@@ -1,0 +1,232 @@
+table Outage_Data
+	lineageTag: 9f8ce768-68ec-4ea9-a65a-20d9d54f8e68
+
+	column Number
+		dataType: string
+		lineageTag: 5137990f-9c60-4b19-b630-9c092500ad29
+		summarizeBy: none
+		sourceColumn: Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Related Incidents'
+		dataType: string
+		lineageTag: ce7dad9e-f679-4d61-9198-e16e637a4dd3
+		summarizeBy: none
+		sourceColumn: Related Incidents
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7746a6ea-b809-4359-81fc-1c774838cc42
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation Variation
+			isDefault
+			relationship: 65dfd79e-a7ea-4307-ade9-23ef518d9a36
+			defaultHierarchy: LocalDateTable_a0956026-4ac7-4b4a-8203-a8f1a43e9a62.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column End
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5fb0f1ed-fbeb-470d-be81-c4ed24f54f1d
+		summarizeBy: none
+		sourceColumn: End
+
+		variation Variation
+			isDefault
+			relationship: 46fe635b-64de-411e-9335-f224c8a1b9f5
+			defaultHierarchy: LocalDateTable_780c6097-63b1-487c-810f-9ae995989ca4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outage Description'
+		dataType: string
+		lineageTag: 2e703c62-9018-4332-904d-ce127f182a98
+		summarizeBy: none
+		sourceColumn: Outage Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Affected System'
+		dataType: string
+		lineageTag: 036a3e78-9754-4267-8532-1d4ac4ac71b2
+		summarizeBy: none
+		sourceColumn: Primary Affected System
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JUTNET Node'
+		dataType: string
+		lineageTag: af3f9413-6bd3-480f-810c-c6c9dbd567a5
+		summarizeBy: none
+		sourceColumn: JUTNET Node
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Infrastructure POC'
+		dataType: string
+		lineageTag: da577d0e-dee1-4505-90d0-2811ebbc8d32
+		summarizeBy: none
+		sourceColumn: Infrastructure POC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Manager'
+		dataType: string
+		lineageTag: 5981c539-1af4-4b0c-8ebf-a10d21250c85
+		summarizeBy: none
+		sourceColumn: Account Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: ece5c80c-67d1-4e27-9f49-5c57cb0a78e4
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outage Status'
+		dataType: string
+		lineageTag: 9b5138e4-f975-4452-ab24-de4d914d793a
+		summarizeBy: none
+		sourceColumn: Outage Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 2541fc7c-8a8e-4302-88bb-6c0707d99055
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 06e758ca-6ca6-4ef7-9847-11871511ca7a
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created by'
+		dataType: string
+		lineageTag: 27650222-c932-4fd8-871d-e9cf99e5ce1e
+		summarizeBy: none
+		sourceColumn: Created by
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Down-Time Window Start'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cf85999e-52d8-4d41-a783-32469e24f18f
+		summarizeBy: none
+		sourceColumn: Actual Down-Time Window Start
+
+		variation Variation
+			isDefault
+			relationship: 29114944-ec48-40af-aa02-84b7d86f48b7
+			defaultHierarchy: LocalDateTable_97d9d5ab-697a-4bc0-951a-80f47291804a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Down-Time Window End'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab81ee71-6c9b-48d8-8b8b-c4efc092414f
+		summarizeBy: none
+		sourceColumn: Actual Down-Time Window End
+
+		variation Variation
+			isDefault
+			relationship: df756d92-f747-4197-999c-b93a6dd94663
+			defaultHierarchy: LocalDateTable_f32ce9e3-4616-4940-9a84-bfa9af073ee2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Duration'
+		dataType: double
+		lineageTag: 94f35f87-7864-49e1-9441-c4b5fe8273ad
+		summarizeBy: sum
+		sourceColumn: Actual Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Details
+		dataType: string
+		lineageTag: c345ae01-45ce-42a1-8af6-30bdb3eeccc1
+		summarizeBy: none
+		sourceColumn: Details
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outage Location'
+		dataType: string
+		lineageTag: a2c38392-4c95-4c2d-a184-79eb379140c3
+		summarizeBy: none
+		sourceColumn: Outage Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Root Cause of Outage'
+		dataType: string
+		lineageTag: f2f91308-fd5a-4edf-87c0-6804366b87cf
+		summarizeBy: none
+		sourceColumn: Root Cause of Outage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 411dd56e-c137-46e6-b285-883ced2f3fff
+		summarizeBy: none
+		sourceColumn: Updated
+
+		variation Variation
+			isDefault
+			relationship: 88c3b202-8718-4432-89c2-73a6ec6088e0
+			defaultHierarchy: LocalDateTable_76b0b770-e80d-4376-933f-108122d18a75.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c2cce71d-f8fb-4e53-84f6-e1b3d211f683
+		summarizeBy: none
+		sourceColumn: Created
+
+		variation Variation
+			isDefault
+			relationship: c8b70169-03a4-4c9f-a94f-88c500b9ca1f
+			defaultHierarchy: LocalDateTable_8251e0e8-5fbf-4b5c-bf1b-015e0165d718.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Outage_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS"),
+				    dbo_Outages = Source{[Schema="dbo",Item="Outages"]}[Data],
+				    #"Trimmed Text" = Table.TransformColumns(dbo_Outages,{{"Number", Text.Trim, type text}, {"Related Incidents", Text.Trim, type text}, {"Outage Description", Text.Trim, type text}, {"Primary Affected System", Text.Trim, type text}, {"JUTNET Node", Text.Trim, type text}, {"Infrastructure POC", Text.Trim, type text}, {"Account Manager", Text.Trim, type text}, {"Type", Text.Trim, type text}, {"Outage Status", Text.Trim, type text}, {"Category", Text.Trim, type text}, {"Subcategory", Text.Trim, type text}, {"Created by", Text.Trim, type text}, {"Details", Text.Trim, type text}, {"Outage Location", Text.Trim, type text}, {"Root Cause of Outage", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Number", Text.Clean, type text}, {"Related Incidents", Text.Clean, type text}, {"Outage Description", Text.Clean, type text}, {"Primary Affected System", Text.Clean, type text}, {"JUTNET Node", Text.Clean, type text}, {"Infrastructure POC", Text.Clean, type text}, {"Account Manager", Text.Clean, type text}, {"Type", Text.Clean, type text}, {"Outage Status", Text.Clean, type text}, {"Category", Text.Clean, type text}, {"Subcategory", Text.Clean, type text}, {"Created by", Text.Clean, type text}, {"Details", Text.Clean, type text}, {"Outage Location", Text.Clean, type text}, {"Root Cause of Outage", Text.Clean, type text}})
+				in
+				    #"Cleaned Text"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

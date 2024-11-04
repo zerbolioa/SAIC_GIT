@@ -1,0 +1,53 @@
+table Status_Code_Data
+	lineageTag: 9840e890-24da-42bc-a840-e6c4e6b83f8a
+
+	column state_code
+		dataType: double
+		lineageTag: 7fd0a644-acfd-402b-9939-570890e762c6
+		summarizeBy: sum
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column description
+		dataType: string
+		lineageTag: a9091eaa-358d-4447-8b02-72625243dff0
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column available
+		dataType: string
+		lineageTag: e036fb15-e6fe-4b23-a69d-973fe25165e5
+		summarizeBy: none
+		sourceColumn: available
+
+		annotation SummarizationSetBy = Automatic
+
+	column working
+		dataType: string
+		lineageTag: 48d51b94-0dbb-4084-b00d-05c7a520f8c0
+		summarizeBy: none
+		sourceColumn: working
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Status_Code_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS"),
+				    dbo_Status_Codes = Source{[Schema="dbo",Item="Status_Codes"]}[Data],
+				    #"Trimmed Text" = Table.TransformColumns(dbo_Status_Codes,{{"description", Text.Trim, type text}}),
+				    #"Trimmed Text1" = Table.TransformColumns(#"Trimmed Text",{{"description", Text.Trim, type text}, {"available", Text.Trim, type text}, {"working", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text1",{{"description", Text.Clean, type text}, {"available", Text.Clean, type text}, {"working", Text.Clean, type text}})
+				in
+				    #"Cleaned Text"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

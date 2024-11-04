@@ -1,0 +1,81 @@
+table Map_ACD_INC
+	lineageTag: 3c3caf1d-ca78-4a7b-b74e-c86ed23e9dbd
+
+	column Incident
+		dataType: string
+		lineageTag: dc723ca0-3681-4163-a2b1-72a6430b76cd
+		summarizeBy: none
+		sourceColumn: Incident
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contact_ID
+		dataType: double
+		lineageTag: ed745a5a-4ae7-4b29-8cd2-7b7c4a7e2d6d
+		summarizeBy: none
+		sourceColumn: Contact_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Action
+		dataType: string
+		lineageTag: 8c800ff0-39f5-4f20-b708-f9319e88c367
+		summarizeBy: none
+		sourceColumn: Action
+
+		annotation SummarizationSetBy = Automatic
+
+	column Call_Start
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d8fcbc4f-3b7d-49dd-90ba-84fe74be23bc
+		summarizeBy: none
+		sourceColumn: Call_Start
+
+		variation Variation
+			isDefault
+			relationship: e6f632d2-51fc-4861-90fc-a9e2d8610fd6
+			defaultHierarchy: LocalDateTable_7544f9ed-36d6-4dd9-bbbe-480987d04470.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Call_Complete
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 25ebb821-db92-4491-8efb-f981a18e3c6d
+		summarizeBy: none
+		sourceColumn: Call_Complete
+
+		variation Variation
+			isDefault
+			relationship: 0a31e805-4012-489b-8e14-99032bc93451
+			defaultHierarchy: LocalDateTable_1d24ad1d-9989-410a-b3ed-9143f5353795.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Handle_Time
+		dataType: double
+		lineageTag: f93904e4-115c-47be-b43a-4d7199fe53c3
+		summarizeBy: sum
+		sourceColumn: Handle_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Map_ACD_INC = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS"),
+				    dbo_Map_ACD_INC = Source{[Schema="dbo",Item="Map_ACD_INC"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(dbo_Map_ACD_INC,{{"number", "Incident"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

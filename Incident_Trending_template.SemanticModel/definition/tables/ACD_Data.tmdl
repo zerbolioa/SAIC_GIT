@@ -1,0 +1,363 @@
+table ACD_Data
+	lineageTag: 9150727c-fea4-440f-a711-facd0c5ceefd
+
+	measure _mAAR = DIVIDE([_mAdjustedAbandon],[_mAdjOffered])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fb562d6b-3b8d-4ed4-a9c0-283fa57ad7c0
+
+	measure _mABT = DIVIDE([_mAnsBefThreshold],[_mAnswered])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a65b974e-6e17-4bd9-b132-6dee758a46fa
+
+	measure _mAdjOffered = [_mAnswered] + [_mAdjustedAbandon]
+		formatString: 0
+		lineageTag: 8923b09f-cff6-44d5-bbb3-7a1be9f9e2a8
+
+	measure _mAdjustedAbandon = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon_Time]>120))
+		formatString: 0
+		lineageTag: 0bab609d-b71c-4fc3-b172-90dc44e6fc08
+
+	measure _mAHT = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[HandleTime]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
+		formatString: h:nn:ss
+		lineageTag: 976b47e2-822a-4581-bb4c-86e956165241
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure _mAnsBefThreshold = CALCULATE(COUNTROWS(ACD_Data),FILTER(ACD_Data,ACD_Data[Abandon]="N"),FILTER(ACD_Data,ACD_Data[InQueue]<=120))
+		formatString: 0
+		lineageTag: c12ab629-3a14-432f-a999-bbf7be6e9baf
+
+	measure _mAnswered = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon]="N"))
+		formatString: 0
+		lineageTag: f5d07acc-00c8-4d66-875e-33f4cd4a8e82
+
+	measure _mASA = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[InQueue]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
+		formatString: h:nn:ss
+		lineageTag: 079db8a7-b8d4-422f-a11c-2c9c30da94df
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure _mCallbacks = COUNTROWS(FILTER(ACD_Data,ACD_Data[Callback_Time]>0))
+		formatString: 0
+		lineageTag: 32fd0fc3-4cb6-4a5f-9cfe-74a5db2c36c1
+
+	measure mOffered = COUNTROWS(ACD_Data)
+		formatString: 0
+		lineageTag: 891d26ef-21f4-46ac-a578-ee70eb4ef6d0
+
+	measure mShortAbandon = CALCULATE(COUNTROWS(ACD_Data),FILTER(ACD_Data,ACD_Data[Abandon]="Y"),FILTER(ACD_Data,ACD_Data[Abandon_Time]<=120))
+		formatString: 0
+		lineageTag: 25350871-e4d9-48c6-b16f-e5a8d2b33587
+
+	column Contact_ID
+		dataType: int64
+		lineageTag: dcdf2750-2db4-4c04-b1d7-cbade53b2a9c
+		summarizeBy: none
+		sourceColumn: Contact_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Master_Contact_ID
+		dataType: double
+		lineageTag: 73bc7ea2-5af4-4fac-8c55-20f394c631a3
+		summarizeBy: count
+		sourceColumn: Master_Contact_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Contact_Code
+		dataType: double
+		lineageTag: 8039f4d1-863f-4917-8d0e-08a1b26d747a
+		summarizeBy: count
+		sourceColumn: Contact_Code
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Media_Name
+		dataType: string
+		lineageTag: 2beee027-d37d-4ec7-ae36-a92ac3bdead9
+		summarizeBy: none
+		sourceColumn: Media_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contact_Name
+		dataType: double
+		lineageTag: 8366f332-2f1c-43cd-9b57-96e19f01a3a3
+		summarizeBy: sum
+		sourceColumn: Contact_Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ANI_DIALNUM
+		dataType: double
+		lineageTag: b9fc2b78-6173-44aa-adfa-7d652bbdddc1
+		summarizeBy: sum
+		sourceColumn: ANI_DIALNUM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Skill_Name
+		dataType: string
+		lineageTag: 2f32c9f9-e6ac-4773-9010-e3f071181011
+		summarizeBy: none
+		sourceColumn: Skill_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaign_Name
+		dataType: string
+		lineageTag: 0b7f1dec-5f89-48c1-98d6-caac86b6c694
+		summarizeBy: none
+		sourceColumn: Campaign_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Agent_No
+		dataType: double
+		lineageTag: 24b94a18-c867-44a0-856f-bf1291a67a66
+		summarizeBy: none
+		sourceColumn: Agent_No
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Agent_Name
+		dataType: string
+		lineageTag: 67ff472e-4c40-400e-9ce3-46a31576cff7
+		summarizeBy: none
+		sourceColumn: Agent_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team_Name
+		dataType: string
+		lineageTag: 5fea3b5d-16a9-4574-ba58-0644f79f0716
+		summarizeBy: none
+		sourceColumn: Team_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA
+		dataType: double
+		lineageTag: 90c6bab6-de33-41a0-b7c2-df6e0a9ec469
+		summarizeBy: sum
+		sourceColumn: SLA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Start_Date
+		dataType: dateTime
+		formatString: mm/dd/yy
+		lineageTag: 26aee6f0-f733-4304-8427-0a310db5222c
+		summarizeBy: none
+		sourceColumn: Start_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column start_time
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 183b2b3b-0ee3-4a70-bda6-bc82fdacde96
+		summarizeBy: none
+		sourceColumn: start_time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column PreQueue
+		dataType: double
+		lineageTag: f97efc80-e497-4401-a256-53b6a3865563
+		summarizeBy: sum
+		sourceColumn: PreQueue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InQueue
+		dataType: double
+		lineageTag: 4d1c0521-6f9a-4fce-8812-f629106b092a
+		summarizeBy: sum
+		sourceColumn: InQueue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Agent_Time
+		dataType: double
+		lineageTag: e2a598ba-5d10-4809-aea2-e775b65196ec
+		summarizeBy: sum
+		sourceColumn: Agent_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PostQueue
+		dataType: double
+		lineageTag: da640d75-2910-4090-b0e6-15ad08b2c661
+		summarizeBy: sum
+		sourceColumn: PostQueue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACW_Time
+		dataType: double
+		lineageTag: e14fe093-6d75-4668-8d0a-43d06dbec5c2
+		summarizeBy: sum
+		sourceColumn: ACW_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Abandon_Time
+		dataType: double
+		lineageTag: 67fec0f0-8c36-47c0-a9ce-21682e4a0353
+		summarizeBy: sum
+		sourceColumn: Abandon_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Time_Plus_Disposition
+		dataType: double
+		lineageTag: fe842e46-c38f-4f65-9634-e3d23c1743c3
+		summarizeBy: sum
+		sourceColumn: Total_Time_Plus_Disposition
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Routing_Time
+		dataType: double
+		lineageTag: 61f445f3-696e-4829-9eb3-6bf6c34f409f
+		summarizeBy: sum
+		sourceColumn: Routing_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Abandon
+		dataType: string
+		lineageTag: 5e1bd2c5-ca5c-40dc-ab97-e388fed26246
+		summarizeBy: none
+		sourceColumn: Abandon
+
+		annotation SummarizationSetBy = Automatic
+
+	column Callback_Time
+		dataType: double
+		lineageTag: 4c0f0428-ea62-425c-abed-0b3d2fa6f621
+		summarizeBy: sum
+		sourceColumn: Callback_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Logged
+		dataType: string
+		lineageTag: 07c39e58-aa78-4a05-b879-2b24e3d1ff3b
+		summarizeBy: none
+		sourceColumn: Logged
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hold_Time
+		dataType: double
+		lineageTag: 1089c90d-a1fe-460b-bb17-f80407fc87d9
+		summarizeBy: sum
+		sourceColumn: Hold_Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Disp_Code
+		dataType: double
+		lineageTag: 30067122-a670-410e-85ad-571d7b352412
+		summarizeBy: count
+		sourceColumn: Disp_Code
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Disp_Name
+		dataType: string
+		lineageTag: 1383fb07-c1ab-4151-8515-dc7b083593e7
+		summarizeBy: none
+		sourceColumn: Disp_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tags
+		dataType: string
+		lineageTag: 6e2fe144-5cc8-4789-997c-524bc1a07276
+		summarizeBy: none
+		sourceColumn: Tags
+
+		annotation SummarizationSetBy = Automatic
+
+	column HandleTime = ACD_Data[Agent_Time] + ACD_Data[ACW_Time]
+		dataType: double
+		lineageTag: 6e17817b-fdb8-4cb3-a430-5a52db788df3
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Interval_ACD = (FLOOR(ACD_Data[start_time],1/48))
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: dc97b2aa-07aa-4340-ba33-628be35090ae
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition ACD_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC dbo.sp_ForecastActual_ACD"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Start_Date", type date}, {"Contact_ID", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

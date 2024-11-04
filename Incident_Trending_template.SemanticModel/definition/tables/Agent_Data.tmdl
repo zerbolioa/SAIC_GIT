@@ -1,0 +1,115 @@
+table Agent_Data
+	lineageTag: 3e470c73-20ed-465f-b830-708ba4f3f436
+
+	column Name
+		dataType: string
+		lineageTag: 3164a1b0-bce6-4dce-becc-3bd0d309ae95
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 96556fa3-7923-4745-b1ae-8567aaa3cd1d
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column Role
+		dataType: string
+		lineageTag: 7c7867ea-c69b-479b-954a-f8fee9949810
+		summarizeBy: none
+		sourceColumn: Role
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New Platform inContact ID'
+		dataType: string
+		lineageTag: 7c500b72-28d3-4216-a4b3-fd28f2d8fc6b
+		summarizeBy: none
+		sourceColumn: New Platform inContact ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Second inContact ID'
+		dataType: string
+		lineageTag: 85c76f30-f82a-4add-9e8d-7ca7b7fd69eb
+		summarizeBy: none
+		sourceColumn: Second inContact ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First inContact ID'
+		dataType: string
+		lineageTag: dee7c8fb-3f58-43a0-b83f-68f97ca89bd1
+		summarizeBy: none
+		sourceColumn: First inContact ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ServiceNow ID'
+		dataType: string
+		lineageTag: de306985-9192-4c85-8d38-b197921ed5b6
+		summarizeBy: none
+		sourceColumn: ServiceNow ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SAIC Email'
+		dataType: string
+		lineageTag: dbac08bb-d568-44e5-801f-72c0c988a316
+		summarizeBy: none
+		sourceColumn: SAIC Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Active
+		dataType: string
+		lineageTag: eca3193d-cf91-4550-a82f-cb98ea1d9519
+		summarizeBy: none
+		sourceColumn: Active
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: eeab1ea2-5d97-40cc-bb68-1c773a10a46d
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column QA_Name
+		dataType: string
+		lineageTag: dbb3045a-2b32-4c2c-9faa-762ac17ff1da
+		summarizeBy: none
+		sourceColumn: QA_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column QA_Name_P2
+		dataType: string
+		lineageTag: d5c1adc7-517c-43c0-bc35-52d78602f875
+		summarizeBy: none
+		sourceColumn: QA_Name_P2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Agent_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS"),
+				    dbo_Agent_Master_List = Source{[Schema="dbo",Item="Agent_Master_List"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_Agent_Master_List, each ([New Platform inContact ID] <> null)),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"Name", Text.Trim, type text}, {"Team", Text.Trim, type text}, {"Role", Text.Trim, type text}, {"ServiceNow ID", Text.Trim, type text}, {"SAIC Email", Text.Trim, type text}, {"Active", Text.Trim, type text}, {"Name2", Text.Trim, type text}, {"QA_Name", Text.Trim, type text}, {"QA_Name_P2", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Name", Text.Clean, type text}, {"Team", Text.Clean, type text}, {"Role", Text.Clean, type text}, {"ServiceNow ID", Text.Clean, type text}, {"SAIC Email", Text.Clean, type text}, {"Active", Text.Clean, type text}, {"Name2", Text.Clean, type text}, {"QA_Name", Text.Clean, type text}, {"QA_Name_P2", Text.Clean, type text}})
+				in
+				    #"Cleaned Text"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,38 @@
+table Interval_Data
+	lineageTag: a521a9b7-bd1a-408b-ad3b-165c81a0d364
+
+	column Start
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 55ed70ff-7b95-406a-a423-c6e2f127e481
+		summarizeBy: none
+		sourceColumn: Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column End
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: eb24648c-d7b6-40b9-8d5b-4414eeaf7c87
+		summarizeBy: none
+		sourceColumn: End
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition Interval_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Intervals"]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Open", "Start"}, {"Close", "End"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

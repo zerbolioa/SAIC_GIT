@@ -1,0 +1,188 @@
+table Incident_Data
+	lineageTag: 93adf553-d5d8-4af6-9b07-dfce090be617
+
+	measure '.M_Created' = COUNTROWS(Incident_Data)
+		formatString: 0
+		lineageTag: 2466f14e-4785-4fe5-adae-f6c3525abd46
+
+	measure '.M_Parent' = CALCULATE(COUNTROWS(FILTER(Incident_Data, LEFT(Incident_Data[Parent_Inc],3) = "INC")))
+		formatString: 0
+		lineageTag: 5739cd07-9c87-4869-9748-7519614d295c
+
+	column Incident
+		dataType: string
+		lineageTag: 0dde6863-4419-4b6a-b059-7a9a93bb1fde
+		summarizeBy: none
+		sourceColumn: Incident
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_By
+		dataType: string
+		lineageTag: ef0979e5-5992-403b-8278-2a629ca31982
+		summarizeBy: none
+		sourceColumn: Created_By
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 61be86e8-d3c9-4f4c-beb3-2f57369e0d3d
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Opened
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5db634d3-6054-4cc1-91fd-9ee55feabf5a
+		summarizeBy: none
+		sourceColumn: Opened
+
+		variation Variation
+			isDefault
+			relationship: e0cba0d9-b6ad-45e6-b989-216779caae21
+			defaultHierarchy: LocalDateTable_b04b8399-71da-48f9-928f-65157c447413.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_On
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1f8b3e6a-39ad-4e79-91c4-1d0dac44eabb
+		summarizeBy: none
+		sourceColumn: Created_On
+
+		variation Variation
+			isDefault
+			relationship: a61e602e-003b-45d8-8e94-31c3d88390d9
+			defaultHierarchy: LocalDateTable_c266b877-49bd-4a3a-8e9b-2db518e22cb9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: e02be890-0afc-4987-83d4-ccfb5c88e898
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: a7598369-c02b-42a3-b075-d84d8de13ecc
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Affected Item'
+		dataType: string
+		lineageTag: 1912a742-d612-4452-abcc-596616d9281a
+		summarizeBy: none
+		sourceColumn: Affected Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Assignment
+		dataType: string
+		lineageTag: 8b0942b8-8d28-4569-9a94-17dd4c93bfc5
+		summarizeBy: none
+		sourceColumn: Assignment
+
+		annotation SummarizationSetBy = Automatic
+
+	column short_description
+		dataType: string
+		lineageTag: c3a1bfdd-c7c7-4431-8748-35665898a492
+		summarizeBy: none
+		sourceColumn: short_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 50482fec-27e7-4fda-a704-7e675e9d9b6b
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ab43326-443c-4440-aea5-ca8956c78d98
+		summarizeBy: none
+		sourceColumn: Updated
+
+		variation Variation
+			isDefault
+			relationship: a6455688-c44d-4e00-ba80-5d5a235fdd6b
+			defaultHierarchy: LocalDateTable_2999ad3f-5162-446a-a3a4-5cd7877955e8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grouping
+		dataType: string
+		lineageTag: 5daae24e-05b4-40c0-aa29-2474ffb39e17
+		summarizeBy: none
+		sourceColumn: Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column Parent_Inc
+		dataType: string
+		lineageTag: 64eef1c3-8c96-4a64-8fb7-7b373d2fb083
+		summarizeBy: none
+		sourceColumn: Parent_Inc
+
+		annotation SummarizationSetBy = Automatic
+
+	column Has_Parent
+		dataType: int64
+		formatString: 0
+		lineageTag: b6dbca40-66c3-4e57-ba9c-847f183d06d8
+		summarizeBy: sum
+		sourceColumn: Has_Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interval_INC = (FLOOR(FORMAT(Incident_Data[Created_On], "hh:mm:ss" ),1/48))
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 36f0842c-710d-47d0-b035-dc8ea829e3cd
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column Date_ACD = FLOOR(Incident_Data[Created_On],1)
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: 43f8bbff-f461-4399-b2f2-0e16f8d43961
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Incident_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Incidents"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

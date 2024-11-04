@@ -1,0 +1,54 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["ACD_Data","Calendar_Data","Incident_Data","Forecast_Data","Interval_Data","Agent_Data","Agent_Log_Data","Status_Code_Data","Outage_Data","Map_ACD_INC","Incident Trending","Performance Data"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.131.1203.0 (24.07)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table ACD_Data
+ref table DateTableTemplate_d64a05ec-30ef-4481-846f-f0540847295d
+ref table Calendar_Data
+ref table Incident_Data
+ref table LocalDateTable_b04b8399-71da-48f9-928f-65157c447413
+ref table LocalDateTable_c266b877-49bd-4a3a-8e9b-2db518e22cb9
+ref table LocalDateTable_2999ad3f-5162-446a-a3a4-5cd7877955e8
+ref table Forecast_Data
+ref table Interval_Data
+ref table Agent_Data
+ref table Status_Code_Data
+ref table Outage_Data
+ref table LocalDateTable_a0956026-4ac7-4b4a-8203-a8f1a43e9a62
+ref table LocalDateTable_780c6097-63b1-487c-810f-9ae995989ca4
+ref table LocalDateTable_97d9d5ab-697a-4bc0-951a-80f47291804a
+ref table LocalDateTable_f32ce9e3-4616-4940-9a84-bfa9af073ee2
+ref table LocalDateTable_76b0b770-e80d-4376-933f-108122d18a75
+ref table LocalDateTable_8251e0e8-5fbf-4b5c-bf1b-015e0165d718
+ref table Map_ACD_INC
+ref table LocalDateTable_7544f9ed-36d6-4dd9-bbbe-480987d04470
+ref table LocalDateTable_1d24ad1d-9989-410a-b3ed-9143f5353795
+ref table 'Incident Trending'
+ref table LocalDateTable_b5afd30a-2c34-4e92-b4fd-6420e701b979
+ref table LocalDateTable_9b2b518e-33ac-4448-8327-9879176f1f0c
+ref table LocalDateTable_b5e1911c-8586-4b48-a9da-93aa86bed87d
+ref table LocalDateTable_b4a8a65c-7bdf-472b-8e91-b8f533e451d9
+ref table LocalDateTable_61578493-2955-4a40-9d1c-9b4de6e656ec
+ref table LocalDateTable_1d15c6bf-1a17-4cee-9aab-2c5963e2efa1
+ref table LocalDateTable_96ee4d75-aed7-43cc-9532-8e6a2ffdfb8a
+ref table 'Performance Data'
+ref table LocalDateTable_40228adc-38fa-495d-b9ff-593d2d3e4121
+ref table LocalDateTable_21190527-c52b-4e8c-bc1c-dd4f2dc8b191
+ref table LocalDateTable_c19e756b-2bab-4163-ad6b-d6f67bc0fa59
+ref table LocalDateTable_36b907eb-93f7-4e27-99d8-c0a6ca903edc
+ref table LocalDateTable_d4d412e9-0d87-4451-847e-1cf37ca0ff72
+
+ref cultureInfo en-US
+

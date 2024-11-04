@@ -1,0 +1,418 @@
+table Calendar_Data
+	lineageTag: 237f1dec-d488-4885-a39a-a3f98f1dc9e9
+	dataCategory: Time
+
+	column TheDate
+		dataType: dateTime
+		isKey
+		formatString: mm/dd/yyyy
+		lineageTag: 7f04edd7-f65a-4c29-9692-63eaac8263eb
+		summarizeBy: none
+		sourceColumn: TheDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TheDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 9054b704-ec49-4e36-b90f-71bd1c0d993e
+		summarizeBy: sum
+		sourceColumn: TheDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheDaySuffix
+		dataType: string
+		lineageTag: e40b87c2-417e-443e-98c4-73f199402e81
+		summarizeBy: none
+		sourceColumn: TheDaySuffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheDayName
+		dataType: string
+		lineageTag: d084cec1-296a-49d5-9c5a-ef0c06dc3ac7
+		summarizeBy: none
+		sourceColumn: TheDayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheDayOfWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: c0ce0554-f28d-4c65-bafa-0e68cdf9f511
+		summarizeBy: sum
+		sourceColumn: TheDayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheDayOfWeekInMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 9010048a-559d-4add-8de4-9370427992d9
+		summarizeBy: sum
+		sourceColumn: TheDayOfWeekInMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheDayOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: ceb549a8-62a1-4d2d-b3ce-a63ead5f46ac
+		summarizeBy: sum
+		sourceColumn: TheDayOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: int64
+		formatString: 0
+		lineageTag: ac887b93-c131-4b20-afaa-c7e5909397a7
+		summarizeBy: sum
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: f6aeee8e-59b6-4e4e-8264-e1144f7fac29
+		summarizeBy: sum
+		sourceColumn: TheWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheISOweek
+		dataType: int64
+		formatString: 0
+		lineageTag: 2aba48a0-3294-4a81-8a6e-1585fd28a171
+		summarizeBy: sum
+		sourceColumn: TheISOweek
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheFirstOfWeek
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: c7743a74-718b-4aa9-9ba0-7ae36a80e850
+		summarizeBy: none
+		sourceColumn: TheFirstOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheLastOfWeek
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 3eb1c2f2-10d6-425a-bad9-9435472cf8ca
+		summarizeBy: none
+		sourceColumn: TheLastOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheWeekOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: f61d6f45-c872-448d-beb3-590eb5138883
+		summarizeBy: sum
+		sourceColumn: TheWeekOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: e852290a-1647-4403-8c6b-b33e27898d5a
+		summarizeBy: sum
+		sourceColumn: TheMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheMonthName
+		dataType: string
+		lineageTag: 4e8bc1ab-9d52-4de0-b23e-484478876ed0
+		summarizeBy: none
+		sourceColumn: TheMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheFirstOfMonth
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 612651c0-b572-4775-9412-58a732b3ebd1
+		summarizeBy: none
+		sourceColumn: TheFirstOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheLastOfMonth
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 6d738cb2-8d02-494a-89c5-027f0f3b9852
+		summarizeBy: none
+		sourceColumn: TheLastOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheFirstOfNextMonth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b39c90d0-1ef5-4e66-b189-2bc8fba06864
+		summarizeBy: none
+		sourceColumn: TheFirstOfNextMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheLastOfNextMonth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 042e5136-7ac6-4c78-90c8-788084fed46d
+		summarizeBy: none
+		sourceColumn: TheLastOfNextMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheQuarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 83e35ce4-4951-4e27-b01b-722032540837
+		summarizeBy: sum
+		sourceColumn: TheQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheFirstOfQuarter
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: b357d68d-30a2-451d-84b0-d980711003dd
+		summarizeBy: none
+		sourceColumn: TheFirstOfQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheLastOfQuarter
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: dcf4104c-854b-4c8b-90ab-47b78e17972c
+		summarizeBy: none
+		sourceColumn: TheLastOfQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheYear
+		dataType: int64
+		formatString: 0
+		lineageTag: a9e9f43b-2191-47d8-a000-c645b56a43ce
+		summarizeBy: sum
+		sourceColumn: TheYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheISOYear
+		dataType: int64
+		formatString: 0
+		lineageTag: af9cb122-c468-4dfd-a37b-615cf77ed7c3
+		summarizeBy: sum
+		sourceColumn: TheISOYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column TheFirstOfYear
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 3dab5dcd-8cd5-466a-be5f-04daef71167f
+		summarizeBy: none
+		sourceColumn: TheFirstOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TheLastOfYear
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 05356d69-fb4e-4534-88a8-e51e55cfab94
+		summarizeBy: none
+		sourceColumn: TheLastOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ContractMonth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e6e956cd-7aac-4390-a79c-40fb150c34de
+		summarizeBy: none
+		sourceColumn: ContractMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLeapYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c4e7fc3-b4d0-4a6f-84f5-de085f839f3f
+		summarizeBy: sum
+		sourceColumn: IsLeapYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Has53Weeks
+		dataType: int64
+		formatString: 0
+		lineageTag: b46a0c2d-d41b-47ab-8f39-8a86ac1ebc8a
+		summarizeBy: sum
+		sourceColumn: Has53Weeks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Has53ISOWeeks
+		dataType: int64
+		formatString: 0
+		lineageTag: af92c411-887f-413b-b67a-67d259282a94
+		summarizeBy: sum
+		sourceColumn: Has53ISOWeeks
+
+		annotation SummarizationSetBy = Automatic
+
+	column MMYYYY
+		dataType: string
+		lineageTag: 3c637a6a-eeec-4278-9324-ccfa1c326366
+		summarizeBy: none
+		sourceColumn: MMYYYY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style101
+		dataType: string
+		lineageTag: e6dc3cb6-76dd-41ef-9630-85ff2a475fa1
+		summarizeBy: none
+		sourceColumn: Style101
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style103
+		dataType: string
+		lineageTag: 438f1f99-2596-442e-9465-e67f0d0285a9
+		summarizeBy: none
+		sourceColumn: Style103
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style112
+		dataType: string
+		lineageTag: fae697c0-53d0-42ad-9eb5-f0fedf378758
+		summarizeBy: none
+		sourceColumn: Style112
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style120
+		dataType: string
+		lineageTag: c49732c7-c604-47e1-9e4b-2fa034d0f1dc
+		summarizeBy: none
+		sourceColumn: Style120
+
+		annotation SummarizationSetBy = Automatic
+
+	column Holiday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 41e287da-5cf7-432a-9aee-37557106d306
+		summarizeBy: none
+		sourceColumn: Holiday
+
+		annotation SummarizationSetBy = Automatic
+
+	column HolidayName
+		dataType: string
+		lineageTag: b784dde7-517a-490a-bbbe-62b36d1707eb
+		summarizeBy: none
+		sourceColumn: HolidayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e23e55a-5569-45ce-b10e-c88587bdd62c
+		summarizeBy: none
+		sourceColumn: Month Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8908ffed-04e5-4ccd-88ec-25c8cab47668
+		summarizeBy: none
+		sourceColumn: Week Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Contract Month Start'
+		dataType: dateTime
+		formatString: mm/dd/yyyy
+		lineageTag: 882b63bf-ef7d-465f-b32e-83e4c4f358ab
+		summarizeBy: none
+		sourceColumn: Contract Month Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Calendar_Data = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Calendar"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"TheDate", type date}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"TheDayName", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"TheDayName", Text.Clean, type text}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Cleaned Text",{{"TheFirstOfWeek", type date}, {"TheLastOfWeek", type date}}),
+				    #"Trimmed Text1" = Table.TransformColumns(#"Changed Type1",{{"TheMonthName", Text.Trim, type text}}),
+				    #"Cleaned Text1" = Table.TransformColumns(#"Trimmed Text1",{{"TheMonthName", Text.Clean, type text}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Cleaned Text1", "TheFirstOfMonth", "TheFirstOfMonth - Copy"),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Duplicated Column",{{"TheFirstOfMonth - Copy", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type2",{{"TheFirstOfMonth - Copy", "Month Start"}}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Renamed Columns", "TheFirstOfWeek", "TheFirstOfWeek - Copy"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Duplicated Column1",{{"TheFirstOfWeek - Copy", "Week Start"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Week Start", type date}}),
+				    #"Duplicated Column2" = Table.DuplicateColumn(#"Changed Type3", "ContractMonth", "ContractMonth - Copy"),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Duplicated Column2",{{"ContractMonth - Copy", "Contract Month Start"}}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Renamed Columns2",{{"Contract Month Start", type date}}),
+				    #"Duplicated Column3" = Table.DuplicateColumn(#"Changed Type4", "TheDate", "TheDate - Copy"),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Duplicated Column3",{{"TheDate - Copy", "TI Date"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns3",{"TI Date"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
