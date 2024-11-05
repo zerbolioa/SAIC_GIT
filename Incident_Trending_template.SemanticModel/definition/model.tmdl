@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["ACD_Data","Calendar_Data","Incident_Data","Forecast_Data","Interval_Data","Agent_Data","Agent_Log_Data","Status_Code_Data","Outage_Data","Map_ACD_INC","Incident Trending","Performance Data"]
+annotation PBI_QueryOrder = ["ACD_Data","Calendar_Data","Incident_Data","Forecast_Data","Interval_Data","Agent_Data","Agent_Log_Data","Status_Code_Data","Outage_Data","Map_ACD_INC","Incident Trending","Performance Data","dim Affected Item","dim Categories","dim Subcategories"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -49,6 +49,9 @@ ref table LocalDateTable_21190527-c52b-4e8c-bc1c-dd4f2dc8b191
 ref table LocalDateTable_c19e756b-2bab-4163-ad6b-d6f67bc0fa59
 ref table LocalDateTable_36b907eb-93f7-4e27-99d8-c0a6ca903edc
 ref table LocalDateTable_d4d412e9-0d87-4451-847e-1cf37ca0ff72
+ref table 'dim Affected Item'
+ref table 'dim Categories'
+ref table 'dim Subcategories'
 
 ref cultureInfo en-US
 

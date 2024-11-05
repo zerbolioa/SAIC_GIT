@@ -1,0 +1,224 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "bbed4f835672d5a0db06",
+  "position": {
+    "x": 50.636994370991033,
+    "y": 79.625081816991752,
+    "z": 0,
+    "width": 1229.363005629009,
+    "height": 573.05930095562246,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar_Data"
+                    }
+                  },
+                  "Property": "TheDate"
+                }
+              },
+              "queryRef": "Calendar_Data.TheDate",
+              "nativeQueryRef": "TheDate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast_Data"
+                    }
+                  },
+                  "Property": "_mCallsForecast"
+                }
+              },
+              "queryRef": "ACD_Data.mCallsForecast",
+              "nativeQueryRef": "mCallsForecast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "mOffered"
+                }
+              },
+              "queryRef": "ACD_Data.mOffered",
+              "nativeQueryRef": "mOffered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAdjOffered"
+                }
+              },
+              "queryRef": "ACD_Data.mAdjOffered",
+              "nativeQueryRef": "mAdjOffered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAdjustedAbandon"
+                }
+              },
+              "queryRef": "ACD_Data.mShortAbandon",
+              "nativeQueryRef": "mAdjustedAbandon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAnswered"
+                }
+              },
+              "queryRef": "ACD_Data.mAnswered",
+              "nativeQueryRef": "mAnswered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mABT"
+                }
+              },
+              "queryRef": "ACD_Data.mAnsBefThresholdPct",
+              "nativeQueryRef": "mABT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAAR"
+                }
+              },
+              "queryRef": "ACD_Data.mABA",
+              "nativeQueryRef": "mAAR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mASA"
+                }
+              },
+              "queryRef": "ACD_Data.mASA",
+              "nativeQueryRef": "mASA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAHT"
+                }
+              },
+              "queryRef": "ACD_Data.mAHT",
+              "nativeQueryRef": "mAHT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mCallbacks"
+                }
+              },
+              "queryRef": "ACD_Data.mCallbacks",
+              "nativeQueryRef": "mCallbacks"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": ".M_Created"
+                }
+              },
+              "queryRef": "Incident_Data.mCreated",
+              "nativeQueryRef": "Incidents",
+              "displayName": "Incidents"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": ".M_Parent"
+                }
+              },
+              "queryRef": "Incident_Data.mParent",
+              "nativeQueryRef": "mParent"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendar_Data"
+                  }
+                },
+                "Property": "TheDate"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,29 @@
+table 'dim Categories'
+	lineageTag: 00ca2283-d64f-4903-aad3-372110e0e570
+
+	column Category
+		dataType: string
+		lineageTag: f7dc8a6e-5d0f-4ef4-93a3-c37b7b83f8c0
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim Categories' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Incidents"]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Incident", "Created_By", "Source", "Opened", "Created_On", "Assignment", "short_description", "State", "Updated", "Grouping", "Parent_Inc", "Has_Parent", "Subcategory", "Affected Item"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns"),
+				    #"Trimmed Text" = Table.TransformColumns(#"Removed Duplicates",{{"Category", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Category", Text.Clean, type text}}),
+				    #"Sorted Rows" = Table.Sort(#"Cleaned Text",{{"Category", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([Category] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

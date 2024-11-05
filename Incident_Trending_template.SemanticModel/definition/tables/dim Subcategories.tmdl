@@ -1,0 +1,30 @@
+table 'dim Subcategories'
+	lineageTag: 0d58ca79-c091-415c-a1b1-7f3f43bdcd88
+
+	column Subcategory
+		dataType: string
+		lineageTag: 49eb15d2-0e13-4baf-a0ee-ef26baf83f81
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim Subcategories' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Incidents"]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Incident", "Created_By", "Source", "Opened", "Created_On", "Assignment", "short_description", "State", "Updated", "Grouping", "Parent_Inc", "Has_Parent"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Removed Columns",{"Subcategory"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Trimmed Text" = Table.TransformColumns(#"Removed Duplicates",{{"Subcategory", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Subcategory", Text.Clean, type text}}),
+				    #"Sorted Rows" = Table.Sort(#"Cleaned Text",{{"Subcategory", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([Subcategory] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

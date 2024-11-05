@@ -6475,7 +6475,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "province": {
 			            "Type": "Noun",
@@ -19272,7 +19274,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Curr %": {
+			          "Current Week": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -19282,7 +19284,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Current Week": {
+			          "Curr %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

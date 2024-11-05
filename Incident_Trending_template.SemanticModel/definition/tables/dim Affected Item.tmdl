@@ -1,0 +1,30 @@
+table 'dim Affected Item'
+	lineageTag: ecb6cc1d-d699-421a-9c9c-dab0edfbe6f2
+
+	column 'Affected Item'
+		dataType: string
+		lineageTag: 30b861f9-b3af-4260-b989-c0ed4f43ec74
+		summarizeBy: none
+		sourceColumn: Affected Item
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim Affected Item' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("USM-SQLP-01", "USMS", [Query="EXEC sp_ForecastActual_Incidents"]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Incident", "Created_By", "Source", "Opened", "Created_On", "Assignment", "short_description", "State", "Updated", "Grouping", "Parent_Inc", "Has_Parent"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Removed Columns",{"Affected Item"}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Removed Other Columns",{{"Affected Item", Text.Trim, type text}}),
+				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Affected Item", Text.Clean, type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Cleaned Text"),
+				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Affected Item", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([Affected Item] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

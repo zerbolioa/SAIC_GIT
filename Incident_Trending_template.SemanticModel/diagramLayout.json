@@ -150,6 +150,45 @@
             "width": 234
           },
           "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1797.25,
+            "y": 413.625
+          },
+          "nodeIndex": "dim Affected Item",
+          "nodeLineageTag": "ecb6cc1d-d699-421a-9c9c-dab0edfbe6f2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2081.25,
+            "y": 413.625
+          },
+          "nodeIndex": "dim Categories",
+          "nodeLineageTag": "00ca2283-d64f-4903-aad3-372110e0e570",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2365.25,
+            "y": 413.625
+          },
+          "nodeIndex": "dim Subcategories",
+          "nodeLineageTag": "0d58ca79-c091-415c-a1b1-7f3f43bdcd88",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

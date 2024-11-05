@@ -166,3 +166,26 @@ relationship dc076c61-4172-4ee7-a22e-713a01406632
 	fromColumn: 'Performance Data'.Date
 	toColumn: LocalDateTable_d4d412e9-0d87-4451-847e-1cf37ca0ff72.Date
 
+relationship AutoDetected_d30ca49d-90b5-45a3-85d7-263aa11c57bf
+	fromColumn: Incident_Data.Category
+	toColumn: 'dim Categories'.Category
+
+relationship AutoDetected_5b21e64e-1c8d-4337-aa36-2c572ce050ad
+	isActive: false
+	fromColumn: 'Incident Trending'.Category
+	toColumn: 'dim Categories'.Category
+
+relationship AutoDetected_cac8a6fc-b267-4072-9929-89008afabff9
+	fromColumn: Incident_Data.Subcategory
+	toColumn: 'dim Subcategories'.Subcategory
+
+relationship AutoDetected_6ee00ff2-81e4-46b3-bdf5-5ef2fd0af75f
+	isActive: false
+	fromColumn: Outage_Data.Subcategory
+	toColumn: 'dim Subcategories'.Subcategory
+
+relationship AutoDetected_dbc2f413-aebe-4907-bddd-874b16de8579
+	isActive: false
+	fromColumn: 'Incident Trending'.Subcategory
+	toColumn: 'dim Subcategories'.Subcategory
+

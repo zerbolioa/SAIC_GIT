@@ -1,0 +1,467 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "87140709c6cde757e894",
+  "position": {
+    "x": 64,
+    "y": 64,
+    "z": 0,
+    "width": 1136,
+    "height": 640,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Affected Item"
+                }
+              },
+              "queryRef": "Incident_Data.Affected Item",
+              "nativeQueryRef": "Affected Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Assignment"
+                }
+              },
+              "queryRef": "Incident_Data.Assignment",
+              "nativeQueryRef": "Assignment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "Incident_Data.Category",
+              "nativeQueryRef": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Created_By"
+                }
+              },
+              "queryRef": "Incident_Data.Created_By",
+              "nativeQueryRef": "Created_By"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Created_On"
+                }
+              },
+              "queryRef": "Incident_Data.Created_On",
+              "nativeQueryRef": "Created_On"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Date_ACD"
+                }
+              },
+              "queryRef": "Incident_Data.Date_ACD",
+              "nativeQueryRef": "Date_ACD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Grouping"
+                }
+              },
+              "queryRef": "Incident_Data.Grouping",
+              "nativeQueryRef": "Grouping"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Incident_Data"
+                        }
+                      },
+                      "Property": "Has_Parent"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Incident_Data.Has_Parent)",
+              "nativeQueryRef": "Sum of Has_Parent"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Incident"
+                }
+              },
+              "queryRef": "Incident_Data.Incident",
+              "nativeQueryRef": "Incident"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Interval_INC"
+                }
+              },
+              "queryRef": "Incident_Data.Interval_INC",
+              "nativeQueryRef": "Interval_INC"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Opened"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "Incident_Data.Opened.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "Opened Year"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Opened"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter"
+                }
+              },
+              "queryRef": "Incident_Data.Opened.Variation.Date Hierarchy.Quarter",
+              "nativeQueryRef": "Opened Quarter"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Opened"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Month"
+                }
+              },
+              "queryRef": "Incident_Data.Opened.Variation.Date Hierarchy.Month",
+              "nativeQueryRef": "Opened Month"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Opened"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Day"
+                }
+              },
+              "queryRef": "Incident_Data.Opened.Variation.Date Hierarchy.Day",
+              "nativeQueryRef": "Opened Day"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Parent_Inc"
+                }
+              },
+              "queryRef": "Incident_Data.Parent_Inc",
+              "nativeQueryRef": "Parent_Inc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "short_description"
+                }
+              },
+              "queryRef": "Incident_Data.short_description",
+              "nativeQueryRef": "short_description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Source"
+                }
+              },
+              "queryRef": "Incident_Data.Source",
+              "nativeQueryRef": "Source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "Incident_Data.State",
+              "nativeQueryRef": "State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": "Subcategory"
+                }
+              },
+              "queryRef": "Incident_Data.Subcategory",
+              "nativeQueryRef": "Subcategory"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Updated"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "Incident_Data.Updated.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "Updated Year"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Updated"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter"
+                }
+              },
+              "queryRef": "Incident_Data.Updated.Variation.Date Hierarchy.Quarter",
+              "nativeQueryRef": "Updated Quarter"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Updated"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Month"
+                }
+              },
+              "queryRef": "Incident_Data.Updated.Variation.Date Hierarchy.Month",
+              "nativeQueryRef": "Updated Month"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Incident_Data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Updated"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Day"
+                }
+              },
+              "queryRef": "Incident_Data.Updated.Variation.Date Hierarchy.Day",
+              "nativeQueryRef": "Updated Day"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": ".M_Parent"
+                }
+              },
+              "queryRef": "Incident_Data._mParent",
+              "nativeQueryRef": "_mParent"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": ".M_Created"
+                }
+              },
+              "queryRef": "Incident_Data._mCreated",
+              "nativeQueryRef": "_mCreated"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

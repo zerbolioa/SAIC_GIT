@@ -127,6 +127,13 @@ table 'Incident Trending'
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 0b680a35-5119-4439-a349-14017769334f
 
+	measure '.M_Labels Placeholder' = 0
+		formatString: 0
+		lineageTag: 102d9897-f201-4f4e-af1e-5b6675fd3b91
+
+	measure '.M_Bar Chart Label - Affected Item' = SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+		lineageTag: 4cd52c0b-7026-4b5f-b877-94b6d359b906
+
 	column Incident
 		dataType: string
 		lineageTag: c2a07771-faf7-4cf0-a230-dda20dd8b446

@@ -1,0 +1,223 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "047a2a26556c7e10d697",
+  "position": {
+    "x": 50.670506610812929,
+    "y": 79.625081816991752,
+    "z": 0,
+    "width": 1229.363005629009,
+    "height": 573.05930095562246,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Interval_Data"
+                    }
+                  },
+                  "Property": "Start"
+                }
+              },
+              "queryRef": "Interval_Data.Start",
+              "nativeQueryRef": "Start"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast_Data"
+                    }
+                  },
+                  "Property": "_mCallsForecast"
+                }
+              },
+              "queryRef": "ACD_Data.mCallsForecast",
+              "nativeQueryRef": "mCallsForecast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "mOffered"
+                }
+              },
+              "queryRef": "ACD_Data.mOffered",
+              "nativeQueryRef": "mOffered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAdjOffered"
+                }
+              },
+              "queryRef": "ACD_Data.mAdjOffered",
+              "nativeQueryRef": "mAdjOffered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "mShortAbandon"
+                }
+              },
+              "queryRef": "ACD_Data.mShortAbandon1",
+              "nativeQueryRef": "mShortAbandon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAdjustedAbandon"
+                }
+              },
+              "queryRef": "ACD_Data.mShortAbandon",
+              "nativeQueryRef": "mAdjustedAbandon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAnswered"
+                }
+              },
+              "queryRef": "ACD_Data.mAnswered",
+              "nativeQueryRef": "mAnswered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAnsBefThreshold"
+                }
+              },
+              "queryRef": "ACD_Data.mAnsBefThreshold",
+              "nativeQueryRef": "mAnsBefThreshold"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mABT"
+                }
+              },
+              "queryRef": "ACD_Data.mAnsBefThresholdPct",
+              "nativeQueryRef": "mAnsBefThresholdPct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mASA"
+                }
+              },
+              "queryRef": "ACD_Data.mASA",
+              "nativeQueryRef": "mASA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mAHT"
+                }
+              },
+              "queryRef": "ACD_Data.mAHT",
+              "nativeQueryRef": "mAHT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD_Data"
+                    }
+                  },
+                  "Property": "_mCallbacks"
+                }
+              },
+              "queryRef": "ACD_Data.mCallbacks",
+              "nativeQueryRef": "mCallbacks"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident_Data"
+                    }
+                  },
+                  "Property": ".M_Created"
+                }
+              },
+              "queryRef": "Incident_Data.mCreated",
+              "nativeQueryRef": "mCreated"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ACD_Data"
+                  }
+                },
+                "Property": "_mAHT"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
