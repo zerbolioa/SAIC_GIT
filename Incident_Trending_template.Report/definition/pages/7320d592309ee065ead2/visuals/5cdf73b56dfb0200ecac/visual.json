@@ -32,24 +32,6 @@
             }
           ]
         },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Incident Trending"
-                    }
-                  },
-                  "Property": ".M_FCR %"
-                }
-              },
-              "queryRef": "Incident Trending..M_FCR %",
-              "nativeQueryRef": ".M_FCR %"
-            }
-          ]
-        },
         "Y2": {
           "projections": [
             {

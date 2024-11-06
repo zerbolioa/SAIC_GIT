@@ -74,14 +74,14 @@
             "relativeDuration": {
               "expr": {
                 "Literal": {
-                  "Value": "30D"
+                  "Value": "2D"
                 }
               }
             },
             "relativePeriod": {
               "expr": {
                 "Literal": {
-                  "Value": "'Days'"
+                  "Value": "'Weeks'"
                 }
               }
             }
@@ -141,8 +141,8 @@
                                     "TimeUnit": 0
                                   }
                                 },
-                                "Amount": -30,
-                                "TimeUnit": 0
+                                "Amount": -2,
+                                "TimeUnit": 1
                               }
                             },
                             "TimeUnit": 0
