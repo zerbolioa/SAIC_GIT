@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
-  "name": "7eb21ba03ce6edd600cc",
+  "name": "22f235ff5665c87ca631",
   "position": {
-    "x": 464,
-    "y": 144,
-    "z": 0,
-    "width": 480,
-    "height": 480,
-    "tabOrder": 0
+    "x": 16,
+    "y": 16,
+    "z": 1000,
+    "width": 368,
+    "height": 400,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "Incident Trending..M_Labels Placeholder",
-              "nativeQueryRef": ".M_Labels Placeholder"
+              "nativeQueryRef": "Affected Item1",
+              "displayName": "Affected Item"
             },
             {
               "field": {
@@ -60,7 +61,23 @@
                 }
               },
               "queryRef": "Incident Trending..M_INC Count",
-              "nativeQueryRef": ".M_INC Count"
+              "nativeQueryRef": "Incident Count",
+              "displayName": "Incident Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident Trending"
+                    }
+                  },
+                  "Property": ".M_Spacer Below Bar"
+                }
+              },
+              "queryRef": "Incident Trending..M_Spacer Below Bar",
+              "nativeQueryRef": "--spacer - not visible --",
+              "displayName": "--spacer - not visible --"
             }
           ]
         }
@@ -84,6 +101,60 @@
       }
     },
     "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "60D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
       "labels": [
         {
           "properties": {
@@ -91,6 +162,55 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableTitleDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelOverflow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelContentLayout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SingleLine'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             },
@@ -113,7 +233,7 @@
                       "Entity": "Incident Trending"
                     }
                   },
-                  "Property": ".M_Bar Chart Label - Affected Item"
+                  "Property": ".M_Bar Chart Label - Affected Item Count"
                 }
               }
             }
@@ -126,15 +246,23 @@
                 }
               }
             ],
+            "metadata": "Incident Trending..M_Labels Placeholder",
             "highlightMatching": 1
           }
         },
         {
           "properties": {
-            "showSeries": {
+            "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
@@ -144,28 +272,28 @@
                   "Value": "true"
                 }
               }
-            }
-          },
-          "selector": {
-            "metadata": "Incident Trending..M_INC Count"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
-            ],
-            "metadata": "Incident Trending..M_INC Count",
-            "highlightMatching": 1
-          }
-        },
-        {
-          "properties": {
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            },
             "labelOverflow": {
               "expr": {
                 "Literal": {
@@ -173,14 +301,77 @@
                 }
               }
             },
-            "optimizeLabelDisplay": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calibri'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Incident Trending..M_Labels Placeholder"
+          }
+        },
+        {
+          "properties": {
+            "enableTitleDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "enableTitleDataLabel": {
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelContentLayout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MultiLine'"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calibri'"
+                }
+              }
+            },
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Incident Trending..M_INC Count"
+          }
+        },
+        {
+          "properties": {
+            "enableValueDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -194,20 +385,6 @@
                 }
               }
             },
-            "showSeries": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Auto'"
-                }
-              }
-            },
             "labelContentLayout": {
               "expr": {
                 "Literal": {
@@ -215,16 +392,50 @@
                 }
               }
             },
-            "horizontalAlignment": {
+            "enableTitleDataLabel": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "false"
+                }
+              }
+            },
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Custom'"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Incident Trending..M_Labels Placeholder"
+            "metadata": "Incident Trending..M_Spacer Below Bar"
+          }
+        },
+        {
+          "properties": {
+            "dynamicLabelDetail": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Incident Trending"
+                    }
+                  },
+                  "Property": ".M_Spacer Below Bar"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Incident Trending..M_Spacer Below Bar",
+            "highlightMatching": 1
           }
         }
       ],
@@ -244,119 +455,41 @@
                   "Value": "false"
                 }
               }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.6
-                    }
-                  }
-                }
-              }
             },
-            "borderShow": {
+            "showTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
-            },
-            "fillTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
             }
-          },
-          "selector": {
-            "metadata": "Incident Trending..M_INC Count"
-          }
-        },
-        {
-          "properties": {
-            "fillTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Incident Trending..M_Labels Placeholder"
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "preferredCategoryWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "25D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "error": [
-        {
-          "properties": {
-            "enabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "barBorderSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            },
-            "barShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Incident Trending..M_Labels Placeholder"
           }
         }
       ],
       "layout": [
         {
           "properties": {
+            "clusteredGapSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "clusteredGapOverlaps": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "clusteredGapOverlapReverse": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
             "seriesOrderReversed": {
               "expr": {
                 "Literal": {
@@ -370,38 +503,43 @@
                   "Value": "false"
                 }
               }
-            },
-            "clusteredGapSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
             }
           }
         }
       ],
-      "valueAxis": [
+      "dataPoint": [
         {
           "properties": {
-            "invertAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             },
-            "showAxisTitle": {
+            "fillTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "100D"
                 }
               }
-            },
-            "show": {
+            }
+          },
+          "selector": {
+            "metadata": "Incident Trending..M_Spacer Below Bar"
+          }
+        },
+        {
+          "properties": {
+            "fillTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "0D"
                 }
               }
             }
@@ -410,17 +548,43 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "padding": [
         {
           "properties": {
             "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            },
-            "left": {
               "expr": {
                 "Literal": {
                   "Value": "20D"
@@ -440,6 +604,13 @@
                   "Value": "20D"
                 }
               }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
             }
           }
         }
@@ -447,10 +618,10 @@
       "title": [
         {
           "properties": {
-            "show": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Affected Items'"
                 }
               }
             }
@@ -459,80 +630,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3ef5d3cc-4480-4e4f-992b-890eca76ba96",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Calendar_Data"
-              }
-            },
-            "Property": "TheDate"
-          }
-        },
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "c",
-              "Entity": "Calendar_Data",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "c"
-                        }
-                      },
-                      "Property": "TheDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -1,
-                          "TimeUnit": 1
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "type": "RelativeDate",
-        "howCreated": "User"
-      }
-    ]
   }
 }

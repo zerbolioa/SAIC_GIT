@@ -20,11 +20,13 @@ table 'dim Affected Item'
 				    #"Cleaned Text" = Table.TransformColumns(#"Trimmed Text",{{"Affected Item", Text.Clean, type text}}),
 				    #"Removed Duplicates" = Table.Distinct(#"Cleaned Text"),
 				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Affected Item", Order.Ascending}}),
-				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([Affected Item] <> null))
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([Affected Item] <> null)),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows","other","Other",Replacer.ReplaceText,{"Affected Item"}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Replaced Value")
 				in
-				    #"Filtered Rows"
-
-	annotation PBI_NavigationStepName = Navigation
+				    #"Removed Duplicates1"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
