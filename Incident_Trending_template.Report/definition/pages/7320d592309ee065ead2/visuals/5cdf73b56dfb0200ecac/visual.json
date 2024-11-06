@@ -60,11 +60,11 @@
                       "Entity": "Incident Trending"
                     }
                   },
-                  "Property": ".M_FCR Goal"
+                  "Property": ".M_FCR %"
                 }
               },
-              "queryRef": "Incident Trending..M_FCR Goal",
-              "nativeQueryRef": ".M_FCR Goal"
+              "queryRef": "Incident Trending..M_FCR %",
+              "nativeQueryRef": ".M_FCR %"
             },
             {
               "field": {
@@ -74,11 +74,11 @@
                       "Entity": "Incident Trending"
                     }
                   },
-                  "Property": ".M_FCR %"
+                  "Property": ".M_FCR Goal"
                 }
               },
-              "queryRef": "Incident Trending..M_FCR %",
-              "nativeQueryRef": ".M_FCR %"
+              "queryRef": "Incident Trending..M_FCR Goal",
+              "nativeQueryRef": ".M_FCR Goal"
             }
           ]
         }

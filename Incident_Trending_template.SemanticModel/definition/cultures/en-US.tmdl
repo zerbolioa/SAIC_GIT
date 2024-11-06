@@ -23373,7 +23373,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Affected Item Label": {
+			          "Affected Item": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -23383,7 +23383,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Affected Item": {
+			          "Affected Item Label": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
