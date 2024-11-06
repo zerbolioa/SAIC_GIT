@@ -72,21 +72,6 @@ table 'Incident Trending'
 		formatString: 0
 		lineageTag: 91c2a47f-6d98-4017-8c49-df1e7c01d6b5
 
-	measure 'VAR lastWeekFCR' = ```
-			
-			    CALCULATE (
-			        [.M_FCR Count],
-			        FILTER (
-			            ALL ( 'Calendar_Data' ),
-			            'Calendar_Data'[TheWeek]
-			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
-			        )
-			    )
-			RETURN
-			    lastWeekFCR
-			```
-		lineageTag: 5d9fb6ff-f904-4863-a086-dfbfad2946e9
-
 	measure '.M_LastWeekFCR Count' =
 			
 			VAR lastWeekFCRCount =
@@ -115,7 +100,7 @@ table 'Incident Trending'
 			
 			VAR lastWeekFCRPer =
 			    CALCULATE (
-			        [.M_FCR Count],
+			        [.M_FCR %],
 			        FILTER (
 			            ALL ( 'Calendar_Data' ),
 			            'Calendar_Data'[TheWeek]
@@ -131,8 +116,44 @@ table 'Incident Trending'
 		formatString: 0
 		lineageTag: 102d9897-f201-4f4e-af1e-5b6675fd3b91
 
-	measure '.M_Bar Chart Label - Affected Item' = SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+	measure '.M_Bar Chart Label - Affected Item Count' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _TicketCount = [.M_INC Count]
+			VAR _Label = _AffectedItem & ": " & _TicketCount
+			RETURN _Label
+			```
 		lineageTag: 4cd52c0b-7026-4b5f-b877-94b6d359b906
+
+	measure '.M_Spacer Below Bar' = 20
+		formatString: 0
+		lineageTag: 549db126-5b57-423e-8627-5775ba668f46
+
+	measure '.M_Bar Chart Label - Affected Item WoW' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _TicketCount = [.M_INC Count]
+			VAR _TicketCountLW = [.M_LastWeek_INC Count]
+			VAR _Label = _AffectedItem & ": " & _TicketCount & " " & _TicketCountLW
+			RETURN _Label
+			```
+		lineageTag: 8d699858-0d10-4d4c-a230-9772f2014d56
+
+	measure '.M_Bar Chart Label - Affected Item' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _Label = _AffectedItem
+			RETURN _Label
+			```
+		lineageTag: 80b25797-26a5-4ebe-a888-d33361d1185c
+
+	measure '.M_FCR Goal' = .92
+		lineageTag: 4fb69730-bba2-4a3e-bd69-a91d3b4e08b4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Incident
 		dataType: string
@@ -525,9 +546,13 @@ table 'Incident Trending'
 				    #"Added Conditional Column1" = Table.AddColumn(#"Changed Type1", "VIP", each if [Caller VIP] = true then 1 else 0),
 				    #"Renamed Columns1" = Table.RenameColumns(#"Added Conditional Column1",{{"sys_created_by", "ServiceNow ID"}, {"category", "Category"}, {"subcategory", "Subcategory"}, {"u_affected_item", "Affected Item"}, {"severity", "Severity"}, {"u_func_subcat", "Functional Subcategory"}, {"u_functional_category", "Functional Category"}, {"assignment_group", "Assignment Group"}, {"short_description", "Short Description"}, {"State", "Incident Status"}, {"Parent_Inc", "Parent Incident"}}),
 				    #"Added Conditional Column2" = Table.AddColumn(#"Renamed Columns1", "Has Grouping", each if [Grouping] = "No Group" then 0 else 1),
-				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Conditional Column2",{{"Has Grouping", Int64.Type}})
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Conditional Column2",{{"Has Grouping", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type2","other","Other",Replacer.ReplaceText,{"Affected Item"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value", each true)
 				in
-				    #"Changed Type2"
+				    #"Filtered Rows"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

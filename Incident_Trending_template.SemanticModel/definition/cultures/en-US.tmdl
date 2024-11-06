@@ -19605,6 +19605,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Incident Count": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -23271,22 +23281,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "incident_trending.VAR_lastWeekFCR": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
-			          "ConceptualProperty": "VAR lastWeekFCR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "VAR lastWeekFCR": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "incident_trending.M_LastWeekFCR_count": {
 			      "Definition": {
 			        "Binding": {
@@ -23355,6 +23349,68 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "incident_trending.m_labels_placeholder": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualProperty": ".M_Labels Placeholder"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Spacer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Affected Item Label": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Affected Item": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "incident_trending.m_spacer_below_bar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualProperty": ".M_Spacer Below Bar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "--spacer - not visible --": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]

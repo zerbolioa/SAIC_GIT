@@ -184,7 +184,11 @@ relationship AutoDetected_6ee00ff2-81e4-46b3-bdf5-5ef2fd0af75f
 	fromColumn: Outage_Data.Subcategory
 	toColumn: 'dim Subcategories'.Subcategory
 
-relationship AutoDetected_dbc2f413-aebe-4907-bddd-874b16de8579
+relationship 5c731849-1f05-e1a3-d112-b2e23e6df43f
+	fromColumn: 'Incident Trending'.'Affected Item'
+	toColumn: 'dim Affected Item'.'Affected Item'
+
+relationship 4ec93107-08c5-166a-1a54-a1a09ac22ca4
 	isActive: false
 	fromColumn: 'Incident Trending'.Subcategory
 	toColumn: 'dim Subcategories'.Subcategory
