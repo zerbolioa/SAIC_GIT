@@ -56,11 +56,11 @@
                       "Entity": "Incident Trending"
                     }
                   },
-                  "Property": ".M_FCR Goal"
+                  "Property": "M_FCR Goal"
                 }
               },
               "queryRef": "Incident Trending..M_FCR Goal",
-              "nativeQueryRef": ".M_FCR Goal"
+              "nativeQueryRef": "M_FCR Goal"
             }
           ]
         }

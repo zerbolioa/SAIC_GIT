@@ -81,7 +81,7 @@
             "relativeDuration": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "2D"
                 }
               }
             }
@@ -141,7 +141,7 @@
                                     "TimeUnit": 0
                                   }
                                 },
-                                "Amount": -1,
+                                "Amount": -2,
                                 "TimeUnit": 1
                               }
                             },

@@ -13,7 +13,12 @@ table 'Incident Trending'
 		formatString: 0
 		lineageTag: 0ba976e0-48a5-4ad0-85cb-c9d56afff0b7
 
-	measure '.M_Abandon %' = DIVIDE('Incident Trending'[.M_Abandon Count],SUM('Performance Data'[Offered]))
+	measure '.M_Abandon %' =
+			
+			DIVIDE(
+			    SUM('Performance Data'[TrueAbandon]),
+			    SUM('Performance Data'[Offered])
+			    )
 		lineageTag: 3f97ba9f-ee2c-450d-a52b-b2f11aa8b120
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -23,7 +28,12 @@ table 'Incident Trending'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '.M_FCR %' = DIVIDE(SUM('Incident Trending'[FCR Met]),[.M_Total Calls])
+	measure '.M_FCR %' =
+			
+			DIVIDE(
+			    SUM('Incident Trending'[FCR Met]),
+			    SUM('Performance Data'[Offered])
+			    )
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 6fe866bb-570b-493d-83fd-1c66ce7d67ca
 
@@ -36,7 +46,12 @@ table 'Incident Trending'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '.M_INC %' = DIVIDE('Incident Trending'[.M_INC Count],SUM('Performance Data'[Offered]))
+	measure '.M_INC %' =
+			
+			DIVIDE(
+			    COUNT('Incident Trending'[Incident]),
+			    SUM('Performance Data'[Offered])
+			    )
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: ad52bc41-4e54-4b39-a6f2-8c55fe81a63c
 
@@ -150,7 +165,7 @@ table 'Incident Trending'
 			```
 		lineageTag: 80b25797-26a5-4ebe-a888-d33361d1185c
 
-	measure '.M_FCR Goal' = .92
+	measure 'M_FCR Goal' = .92
 		lineageTag: 4fb69730-bba2-4a3e-bd69-a91d3b4e08b4
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
