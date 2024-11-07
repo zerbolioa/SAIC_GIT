@@ -28,5 +28,3 @@ table 'dim Affected Item'
 
 	annotation PBI_ResultType = Table
 
-	annotation PBI_NavigationStepName = Navigation
-
