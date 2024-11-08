@@ -10,7 +10,7 @@ annotation PBI_QueryOrder = ["ACD_Data","Calendar_Data","Incident_Data","Forecas
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.131.1203.0 (24.07)
+annotation PBIDesktopVersion = 2.136.1478.0 (24.09)
 
 annotation PBI_ProTooling = ["DevMode"]
 
