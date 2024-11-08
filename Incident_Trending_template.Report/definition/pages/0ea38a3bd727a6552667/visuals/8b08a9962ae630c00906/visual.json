@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "8b08a9962ae630c00906",
   "position": {
     "x": 48,
     "y": 0,
     "z": 6000,
-    "width": 336,
     "height": 160,
+    "width": 336,
     "tabOrder": 6000
   },
   "visual": {
@@ -150,26 +150,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f613471f-8fc9-4604-a0f9-c04b85b401d0",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Incident Trending"
-                  }
-                },
-                "Property": "Incident"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
         "name": "Filter6b715234021a3dc9b149",
         "field": {
           "Column": {
@@ -252,6 +232,7 @@
             "Property": "TheDate"
           }
         },
+        "type": "RelativeDate",
         "filter": {
           "Version": 2,
           "From": [
@@ -289,7 +270,6 @@
             }
           ]
         },
-        "type": "RelativeDate",
         "howCreated": "User"
       }
     ]

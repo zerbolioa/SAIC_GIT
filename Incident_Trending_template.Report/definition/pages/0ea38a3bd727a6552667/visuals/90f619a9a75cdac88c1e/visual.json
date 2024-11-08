@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "90f619a9a75cdac88c1e",
   "position": {
     "x": 400,
     "y": 400,
     "z": 5000,
-    "width": 336,
     "height": 304,
+    "width": 336,
     "tabOrder": 5000
   },
   "visual": {
@@ -317,36 +317,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "0d50b572-9531-46d2-8d02-404974a769ab",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Incident Trending"
-              }
-            },
-            "Property": ".M_LastWeek_INC %"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "65233480-cae1-49e8-b7c6-d35221a7fc82",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Incident Trending"
-              }
-            },
-            "Property": ".M_LastWeek_FCR %"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
       }
     ]
   }
