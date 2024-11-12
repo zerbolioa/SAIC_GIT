@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_LastWeekFCR Count"
@@ -51,7 +51,7 @@
                     "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Incident Trending"
+                          "Entity": "DAX"
                         }
                       },
                       "Property": ".M_LastWeek_FCR %"
@@ -63,7 +63,7 @@
                         "Measure": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "Incident Trending"
+                              "Entity": "DAX"
                             }
                           },
                           "Property": ".M_LastWeek_FCR %"
@@ -84,7 +84,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_FCR Count"
@@ -99,7 +99,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_FCR %"

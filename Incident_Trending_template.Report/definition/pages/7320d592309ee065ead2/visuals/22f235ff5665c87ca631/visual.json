@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "22f235ff5665c87ca631",
   "position": {
     "x": 16,
     "y": 16,
     "z": 1000,
-    "width": 368,
     "height": 400,
+    "width": 368,
     "tabOrder": 1000
   },
   "visual": {
@@ -39,7 +39,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Labels Placeholder"
@@ -54,7 +54,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_INC Count"
@@ -69,7 +69,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Spacer Below Bar"
@@ -89,7 +89,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Incident Trending"
+                    "Entity": "DAX"
                   }
                 },
                 "Property": ".M_INC Count"
@@ -230,7 +230,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Bar Chart Label - Affected Item Count"
@@ -418,7 +418,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Spacer Below Bar"

@@ -1,0 +1,298 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
+  "name": "75cb299f4e2546c202df",
+  "position": {
+    "x": 400,
+    "y": 0,
+    "z": 8001,
+    "height": 160,
+    "width": 264,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Bar Chart Label - Affected Item"
+                }
+              },
+              "queryRef": "Incident Trending..M_Bar Chart Label - Affected Item",
+              "nativeQueryRef": ".M_Bar Chart Label - Affected Item"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Bar Chart Label - Affected Item Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_Bar Chart Label - Affected Item Count",
+              "nativeQueryRef": ".M_Bar Chart Label - Affected Item Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Bar Chart Label - Affected Item WoW"
+                }
+              },
+              "queryRef": "Incident Trending..M_Bar Chart Label - Affected Item WoW",
+              "nativeQueryRef": ".M_Bar Chart Label - Affected Item WoW"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Abandon %"
+                }
+              },
+              "queryRef": "Incident Trending..M_Abandon %",
+              "nativeQueryRef": ".M_Abandon %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Abandon Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_Abandon Count",
+              "nativeQueryRef": ".M_Abandon Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_ABT_120 %"
+                }
+              },
+              "queryRef": "Incident Trending..M_ABT_120 %",
+              "nativeQueryRef": ".M_ABT_120 %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Answered %"
+                }
+              },
+              "queryRef": "Incident Trending..M_Answered %",
+              "nativeQueryRef": ".M_Answered %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_FCR %"
+                }
+              },
+              "queryRef": "Incident Trending..M_FCR %",
+              "nativeQueryRef": ".M_FCR %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_FCR Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_FCR Count",
+              "nativeQueryRef": ".M_FCR Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_INC %"
+                }
+              },
+              "queryRef": "Incident Trending..M_INC %",
+              "nativeQueryRef": ".M_INC %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_INC Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_INC Count",
+              "nativeQueryRef": ".M_INC Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Labels Placeholder"
+                }
+              },
+              "queryRef": "Incident Trending..M_Labels Placeholder",
+              "nativeQueryRef": ".M_Labels Placeholder"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_LastWeek_FCR %"
+                }
+              },
+              "queryRef": "Incident Trending..M_LastWeek_FCR %",
+              "nativeQueryRef": ".M_LastWeek_FCR %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_LastWeek_INC %"
+                }
+              },
+              "queryRef": "Incident Trending..M_LastWeek_INC %",
+              "nativeQueryRef": ".M_LastWeek_INC %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_LastWeek_INC Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_LastWeek_INC Count",
+              "nativeQueryRef": ".M_LastWeek_INC Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_LastWeekFCR Count"
+                }
+              },
+              "queryRef": "Incident Trending..M_LastWeekFCR Count",
+              "nativeQueryRef": ".M_LastWeekFCR Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Spacer Below Bar"
+                }
+              },
+              "queryRef": "Incident Trending..M_Spacer Below Bar",
+              "nativeQueryRef": ".M_Spacer Below Bar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": ".M_Total Calls"
+                }
+              },
+              "queryRef": "Incident Trending..M_Total Calls",
+              "nativeQueryRef": ".M_Total Calls"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DAX"
+                  }
+                },
+                "Property": ".M_Abandon %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,14 +1,6 @@
 table Incident_Data
 	lineageTag: 93adf553-d5d8-4af6-9b07-dfce090be617
 
-	measure '.M_Created' = COUNTROWS(Incident_Data)
-		formatString: 0
-		lineageTag: 2466f14e-4785-4fe5-adae-f6c3525abd46
-
-	measure '.M_Parent' = CALCULATE(COUNTROWS(FILTER(Incident_Data, LEFT(Incident_Data[Parent_Inc],3) = "INC")))
-		formatString: 0
-		lineageTag: 5739cd07-9c87-4869-9748-7519614d295c
-
 	column Incident
 		dataType: string
 		lineageTag: 0dde6863-4419-4b6a-b059-7a9a93bb1fde

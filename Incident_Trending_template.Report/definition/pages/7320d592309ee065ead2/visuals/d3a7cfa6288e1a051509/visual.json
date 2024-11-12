@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "d3a7cfa6288e1a051509",
   "position": {
     "x": 400,
     "y": 16,
     "z": 0,
-    "width": 464,
     "height": 256,
+    "width": 464,
     "tabOrder": 0
   },
   "visual": {
@@ -39,7 +39,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Labels Placeholder"
@@ -54,7 +54,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_INC Count"
@@ -68,7 +68,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_LastWeek_INC Count"
@@ -87,7 +87,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Incident Trending"
+                    "Entity": "DAX"
                   }
                 },
                 "Property": ".M_INC Count"
@@ -200,7 +200,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Bar Chart Label - Affected Item"

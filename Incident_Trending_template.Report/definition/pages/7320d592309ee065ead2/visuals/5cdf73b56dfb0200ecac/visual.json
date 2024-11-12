@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "5cdf73b56dfb0200ecac",
   "position": {
     "x": 400,
     "y": 288,
     "z": 3000,
-    "width": 832,
     "height": 416,
+    "width": 832,
     "tabOrder": 3000
   },
   "visual": {
@@ -39,7 +39,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_FCR %"

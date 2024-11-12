@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "de7652c0b99d126b757c",
   "position": {
     "x": 600,
     "y": 104,
     "z": 1000,
-    "width": 304,
     "height": 288,
+    "width": 304,
     "tabOrder": 1000
   },
   "visual": {
@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident Trending"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_INC Count"
@@ -51,7 +51,7 @@
                     "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Incident Trending"
+                          "Entity": "DAX"
                         }
                       },
                       "Property": ".M_INC Count"
@@ -63,7 +63,7 @@
                         "Measure": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "Incident Trending"
+                              "Entity": "DAX"
                             }
                           },
                           "Property": ".M_INC Count"
@@ -89,7 +89,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Incident Trending"
+                    "Entity": "DAX"
                   }
                 },
                 "Property": ".M_INC Count"

@@ -1,46 +1,6 @@
 table ACD_Data
 	lineageTag: 9150727c-fea4-440f-a711-facd0c5ceefd
 
-	measure _mAAR = DIVIDE([_mAdjustedAbandon],[_mAdjOffered])
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: fb562d6b-3b8d-4ed4-a9c0-283fa57ad7c0
-
-	measure _mABT = DIVIDE([_mAnsBefThreshold],[_mAnswered])
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: a65b974e-6e17-4bd9-b132-6dee758a46fa
-
-	measure _mAdjOffered = [_mAnswered] + [_mAdjustedAbandon]
-		formatString: 0
-		lineageTag: 8923b09f-cff6-44d5-bbb3-7a1be9f9e2a8
-
-	measure _mAdjustedAbandon = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon_Time]>120))
-		formatString: 0
-		lineageTag: 0bab609d-b71c-4fc3-b172-90dc44e6fc08
-
-	measure _mAHT = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[HandleTime]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
-		formatString: h:nn:ss
-		lineageTag: 976b47e2-822a-4581-bb4c-86e956165241
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
-	measure _mAnsBefThreshold = CALCULATE(COUNTROWS(ACD_Data),FILTER(ACD_Data,ACD_Data[Abandon]="N"),FILTER(ACD_Data,ACD_Data[InQueue]<=120))
-		formatString: 0
-		lineageTag: c12ab629-3a14-432f-a999-bbf7be6e9baf
-
-	measure _mAnswered = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon]="N"))
-		formatString: 0
-		lineageTag: f5d07acc-00c8-4d66-875e-33f4cd4a8e82
-
-	measure _mASA = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[InQueue]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
-		formatString: h:nn:ss
-		lineageTag: 079db8a7-b8d4-422f-a11c-2c9c30da94df
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
-	measure _mCallbacks = COUNTROWS(FILTER(ACD_Data,ACD_Data[Callback_Time]>0))
-		formatString: 0
-		lineageTag: 32fd0fc3-4cb6-4a5f-9cfe-74a5db2c36c1
-
 	measure mOffered = COUNTROWS(ACD_Data)
 		formatString: 0
 		lineageTag: 891d26ef-21f4-46ac-a578-ee70eb4ef6d0

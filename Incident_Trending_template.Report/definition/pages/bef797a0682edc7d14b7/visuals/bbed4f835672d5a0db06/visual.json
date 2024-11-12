@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "bbed4f835672d5a0db06",
   "position": {
     "x": 50.636994370991033,
     "y": 79.625081816991752,
     "z": 0,
-    "width": 1229.363005629009,
     "height": 573.05930095562246,
+    "width": 1229.363005629009,
     "tabOrder": 0
   },
   "visual": {
@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Forecast_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mCallsForecast"
@@ -62,7 +62,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mAdjOffered"
@@ -76,7 +76,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mAdjustedAbandon"
@@ -90,7 +90,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mAnswered"
@@ -104,7 +104,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mABT"
@@ -118,7 +118,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mAAR"
@@ -132,7 +132,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mASA"
@@ -146,7 +146,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mAHT"
@@ -160,7 +160,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ACD_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": "_mCallbacks"
@@ -174,7 +174,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Created"
@@ -189,7 +189,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Incident_Data"
+                      "Entity": "DAX"
                     }
                   },
                   "Property": ".M_Parent"

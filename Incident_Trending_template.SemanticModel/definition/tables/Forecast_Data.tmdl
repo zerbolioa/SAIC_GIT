@@ -1,11 +1,6 @@
 table Forecast_Data
 	lineageTag: e981337f-5150-486c-934f-1b6b39b1c2ae
 
-	measure _mCallsForecast = SUM(Forecast_Data[Volume])
-		lineageTag: 12fc001d-db1f-4c50-a963-58046c6d9104
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Date
 		dataType: dateTime
 		formatString: Long Date

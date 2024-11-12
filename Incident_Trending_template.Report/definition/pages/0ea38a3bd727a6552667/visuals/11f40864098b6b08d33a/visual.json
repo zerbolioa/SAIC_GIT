@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
   "name": "11f40864098b6b08d33a",
   "position": {
     "x": 48,
     "y": 400,
     "z": 1000,
-    "width": 336,
     "height": 304,
+    "width": 336,
     "tabOrder": 1000
   },
   "visual": {
@@ -41,7 +41,7 @@
                     "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Incident Trending"
+                          "Entity": "DAX"
                         }
                       },
                       "Property": ".M_INC %"
@@ -53,7 +53,7 @@
                         "Measure": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "Incident Trending"
+                              "Entity": "DAX"
                             }
                           },
                           "Property": ".M_INC %"
@@ -76,7 +76,7 @@
                     "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Incident Trending"
+                          "Entity": "DAX"
                         }
                       },
                       "Property": ".M_LastWeek_INC %"
@@ -88,7 +88,7 @@
                         "Measure": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "Incident Trending"
+                              "Entity": "DAX"
                             }
                           },
                           "Property": ".M_LastWeek_INC %"
@@ -116,7 +116,7 @@
                   "Measure": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Incident Trending"
+                        "Entity": "DAX"
                       }
                     },
                     "Property": ".M_LastWeek_INC %"
@@ -128,7 +128,7 @@
                       "Measure": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Incident Trending"
+                            "Entity": "DAX"
                           }
                         },
                         "Property": ".M_LastWeek_INC %"

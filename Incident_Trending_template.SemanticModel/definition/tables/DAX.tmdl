@@ -1,0 +1,262 @@
+table DAX
+	lineageTag: ec661e45-bdc0-4029-bd2e-be3709ff971a
+
+	measure '.M_Abandon %' =
+			
+			DIVIDE(
+			    SUM('Performance Data'[TrueAbandon]),
+			    SUM('Performance Data'[Offered])
+			    )
+		displayFolder: INC Measures
+		lineageTag: 3f97ba9f-ee2c-450d-a52b-b2f11aa8b120
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_Abandon Count' = SUM('Performance Data'[TrueAbandon])
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 0ba976e0-48a5-4ad0-85cb-c9d56afff0b7
+
+	measure '.M_ABT_120 %' = DIVIDE(SUM('Performance Data'[AnsBef120]), SUM('Performance Data'[Offered]))
+		displayFolder: INC Measures
+		lineageTag: d98a1384-5c1b-41ad-8c63-20c66f204ea8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_Answered %' = DIVIDE(SUM('Performance Data'[Answered]),SUM('Performance Data'[Offered]))
+		displayFolder: INC Measures
+		lineageTag: a35d02a9-bcca-426e-8106-99a6c2a555e7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_Bar Chart Label - Affected Item' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _Label = _AffectedItem
+			RETURN _Label
+			```
+		displayFolder: Bar Chart Elements
+		lineageTag: 80b25797-26a5-4ebe-a888-d33361d1185c
+
+	measure '.M_Bar Chart Label - Affected Item Count' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _TicketCount = [.M_INC Count]
+			VAR _Label = _AffectedItem & ": " & _TicketCount
+			RETURN _Label
+			```
+		displayFolder: Bar Chart Elements
+		lineageTag: 4cd52c0b-7026-4b5f-b877-94b6d359b906
+
+	measure '.M_Bar Chart Label - Affected Item WoW' = ```
+			
+			VAR _AffectedItem = 
+			    SELECTEDVALUE( 'Incident Trending'[Affected Item] )
+			VAR _TicketCount = [.M_INC Count]
+			VAR _TicketCountLW = [.M_LastWeek_INC Count]
+			VAR _Label = _AffectedItem & ": " & _TicketCount & " " & _TicketCountLW
+			RETURN _Label
+			```
+		displayFolder: Bar Chart Elements
+		lineageTag: 8d699858-0d10-4d4c-a230-9772f2014d56
+
+	measure '.M_FCR %' =
+			
+			DIVIDE(
+			    SUM('Incident Trending'[FCR Met]),
+			    SUM('Performance Data'[Offered])
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: INC Measures
+		lineageTag: 6fe866bb-570b-493d-83fd-1c66ce7d67ca
+
+	measure '.M_FCR Count' = CALCULATE(SUM('Incident Trending'[FCR Met]))
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 769fde99-4b34-416a-ae4c-dd9a45377ce9
+
+	measure '.M_INC %' =
+			
+			DIVIDE(
+			    COUNT('Incident Trending'[Incident]),
+			    SUM('Performance Data'[Offered])
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: INC Measures
+		lineageTag: ad52bc41-4e54-4b39-a6f2-8c55fe81a63c
+
+	measure '.M_INC Count' = COUNT('Incident Trending'[Incident])
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 5b04a845-4d84-49ba-8cb1-38943dfa179c
+
+	measure '.M_Labels Placeholder' = 0
+		formatString: 0
+		displayFolder: Bar Chart Elements
+		lineageTag: 102d9897-f201-4f4e-af1e-5b6675fd3b91
+
+	measure '.M_LastWeek_FCR %' =
+			
+			VAR lastWeekFCRPer =
+			    CALCULATE (
+			        [.M_FCR %],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekFCRPer
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: INC Measures
+		lineageTag: 0b680a35-5119-4439-a349-14017769334f
+
+	measure '.M_LastWeek_INC %' =
+			
+			VAR lastWeekINCPer =
+			    CALCULATE (
+			        [.M_INC Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekINCPer
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: INC Measures
+		lineageTag: 643fece9-e9d5-4604-8caf-50984a49ad18
+
+	measure '.M_LastWeek_INC Count' =
+			
+			VAR lastWeekINCAmount =
+			    CALCULATE (
+			        [.M_INC Count],
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekINCAmount
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 91c2a47f-6d98-4017-8c49-df1e7c01d6b5
+
+	measure '.M_LastWeekFCR Count' =
+			
+			VAR lastWeekFCRCount =
+			    CALCULATE (
+			        SUM('Incident Trending'[FCR Met]),
+			        FILTER (
+			            ALL ( 'Calendar_Data' ),
+			            'Calendar_Data'[TheWeek]
+			                = MIN ( 'Calendar_Data'[TheWeek] ) - 1
+			        )
+			    )
+			RETURN
+			    lastWeekFCRCount
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: cb690ed8-b72a-4b15-bd56-3dc12dbf9577
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MonthOverMonth"
+				}
+
+		changedProperty = FormatString
+
+	measure '.M_Spacer Below Bar' = 20
+		formatString: 0
+		displayFolder: Bar Chart Elements
+		lineageTag: 549db126-5b57-423e-8627-5775ba668f46
+
+	measure '.M_Total Calls' = SUM('Performance Data'[Offered])
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 450980d5-d563-47b9-8334-8dac81fbbbbd
+
+	measure _mAAR = DIVIDE([_mAdjustedAbandon],[_mAdjOffered])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ACD Measures
+		lineageTag: fb562d6b-3b8d-4ed4-a9c0-283fa57ad7c0
+
+	measure _mABT = DIVIDE([_mAnsBefThreshold],[_mAnswered])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ACD Measures
+		lineageTag: a65b974e-6e17-4bd9-b132-6dee758a46fa
+
+	measure _mAdjOffered = [_mAnswered] + [_mAdjustedAbandon]
+		formatString: 0
+		displayFolder: ACD Measures
+		lineageTag: 8923b09f-cff6-44d5-bbb3-7a1be9f9e2a8
+
+	measure _mAdjustedAbandon = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon_Time]>120))
+		formatString: 0
+		displayFolder: ACD Measures
+		lineageTag: 0bab609d-b71c-4fc3-b172-90dc44e6fc08
+
+	measure _mAHT = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[HandleTime]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
+		formatString: h:nn:ss
+		displayFolder: ACD Measures
+		lineageTag: 976b47e2-822a-4581-bb4c-86e956165241
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure _mAnsBefThreshold = CALCULATE(COUNTROWS(ACD_Data),FILTER(ACD_Data,ACD_Data[Abandon]="N"),FILTER(ACD_Data,ACD_Data[InQueue]<=120))
+		formatString: 0
+		displayFolder: ACD Measures
+		lineageTag: c12ab629-3a14-432f-a999-bbf7be6e9baf
+
+	measure _mAnswered = COUNTROWS(FILTER(ACD_Data,ACD_Data[Abandon]="N"))
+		formatString: 0
+		displayFolder: ACD Measures
+		lineageTag: f5d07acc-00c8-4d66-875e-33f4cd4a8e82
+
+	measure _mASA = TIME(0,0,CALCULATE(AVERAGE(ACD_Data[InQueue]),FILTER(ACD_Data,ACD_Data[Abandon] = "N")))
+		formatString: h:nn:ss
+		displayFolder: ACD Measures
+		lineageTag: 079db8a7-b8d4-422f-a11c-2c9c30da94df
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure _mCallbacks = COUNTROWS(FILTER(ACD_Data,ACD_Data[Callback_Time]>0))
+		formatString: 0
+		displayFolder: ACD Measures
+		lineageTag: 32fd0fc3-4cb6-4a5f-9cfe-74a5db2c36c1
+
+	measure _mCallsForecast = SUM(Forecast_Data[Volume])
+		displayFolder: Forecast Measures
+		lineageTag: 12fc001d-db1f-4c50-a963-58046c6d9104
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '.M_Created' = COUNTROWS(Incident_Data)
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 2466f14e-4785-4fe5-adae-f6c3525abd46
+
+	measure '.M_Parent' = CALCULATE(COUNTROWS(FILTER(Incident_Data, LEFT(Incident_Data[Parent_Inc],3) = "INC")))
+		formatString: 0
+		displayFolder: INC Measures
+		lineageTag: 5739cd07-9c87-4869-9748-7519614d295c
+
+	partition DAX = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

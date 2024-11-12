@@ -8,7 +8,7 @@ cultureInfo en-US
 			    "incident_data.mcreated": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Created"
 			        }
 			      },
@@ -2911,7 +2911,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAAR_mAAR": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAAR"
 			        }
 			      },
@@ -2927,7 +2927,7 @@ cultureInfo en-US
 			    "ACD_data.v_mABT_mABT": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mABT"
 			        }
 			      },
@@ -2943,7 +2943,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAdjOffered_mAdjOffered": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAdjOffered"
 			        }
 			      },
@@ -2959,7 +2959,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAdjustedAbandon_mAdjustedAbandon": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAdjustedAbandon"
 			        }
 			      },
@@ -2975,7 +2975,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAHT_mAHT": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAHT"
 			        }
 			      },
@@ -2998,7 +2998,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAnsBefThreshold_mAnsBefThreshold": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAnsBefThreshold"
 			        }
 			      },
@@ -3014,7 +3014,7 @@ cultureInfo en-US
 			    "ACD_data.v_mAnswered_mAnswered": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mAnswered"
 			        }
 			      },
@@ -3030,7 +3030,7 @@ cultureInfo en-US
 			    "ACD_data.v_mASA_mASA": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mASA"
 			        }
 			      },
@@ -3053,7 +3053,7 @@ cultureInfo en-US
 			    "ACD_data.v_mCallbacks_mCallbacks": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "ACD_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mCallbacks"
 			        }
 			      },
@@ -7021,7 +7021,7 @@ cultureInfo en-US
 			    "incident_data.v_mParent_mParent": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Parent"
 			        }
 			      },
@@ -7513,7 +7513,7 @@ cultureInfo en-US
 			    "forecast_data.v_mCallsForecast_mCallsForecast": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Forecast_Data",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": "_mCallsForecast"
 			        }
 			      },
@@ -19090,7 +19090,7 @@ cultureInfo en-US
 			    "incident_trending.m_abt_120_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_ABT_120 %"
 			        }
 			      },
@@ -19126,7 +19126,7 @@ cultureInfo en-US
 			    "incident_trending.M_Total_calls": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Total Calls"
 			        }
 			      },
@@ -19242,7 +19242,7 @@ cultureInfo en-US
 			    "incident_trending.m_fcr_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_FCR %"
 			        }
 			      },
@@ -19298,7 +19298,7 @@ cultureInfo en-US
 			    "incident_trending.M_Answered_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Answered %"
 			        }
 			      },
@@ -19467,7 +19467,7 @@ cultureInfo en-US
 			    "incident_trending.M_Abandon_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Abandon %"
 			        }
 			      },
@@ -19503,7 +19503,7 @@ cultureInfo en-US
 			    "incident_trending.M_Abandon_count": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Abandon Count"
 			        }
 			      },
@@ -19529,7 +19529,7 @@ cultureInfo en-US
 			    "incident_trending.M_FCR_count": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_FCR Count"
 			        }
 			      },
@@ -19565,7 +19565,7 @@ cultureInfo en-US
 			    "incident_trending.M_INC_count": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_INC Count"
 			        }
 			      },
@@ -23176,7 +23176,7 @@ cultureInfo en-US
 			    "incident_trending.m_inc_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_INC %"
 			        }
 			      },
@@ -23212,7 +23212,7 @@ cultureInfo en-US
 			    "incident_trending.M_LastWeek": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_LastWeek_INC %"
 			        }
 			      },
@@ -23248,7 +23248,7 @@ cultureInfo en-US
 			    "incident_trending.M_LastWeek_count": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_LastWeek_INC Count"
 			        }
 			      },
@@ -23284,7 +23284,7 @@ cultureInfo en-US
 			    "incident_trending.M_LastWeekFCR_count": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_LastWeekFCR Count"
 			        }
 			      },
@@ -23320,7 +23320,7 @@ cultureInfo en-US
 			    "incident_trending.M_LastWeek_FCR_": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_LastWeek_FCR %"
 			        }
 			      },
@@ -23356,7 +23356,7 @@ cultureInfo en-US
 			    "incident_trending.m_labels_placeholder": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Labels Placeholder"
 			        }
 			      },
@@ -23397,7 +23397,7 @@ cultureInfo en-US
 			    "incident_trending.m_spacer_below_bar": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Incident Trending",
+			          "ConceptualEntity": "DAX",
 			          "ConceptualProperty": ".M_Spacer Below Bar"
 			        }
 			      },
