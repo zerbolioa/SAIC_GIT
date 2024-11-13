@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../PBI_Dashboard_v001.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

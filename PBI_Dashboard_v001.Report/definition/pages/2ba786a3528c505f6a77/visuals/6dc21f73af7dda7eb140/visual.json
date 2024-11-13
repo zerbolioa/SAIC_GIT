@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
+  "name": "6dc21f73af7dda7eb140",
+  "position": {
+    "x": 96,
+    "y": 384,
+    "z": 1,
+    "height": 176,
+    "width": 288,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD Trend Data"
+                    }
+                  },
+                  "Property": ".M_SpeedToAnswer"
+                }
+              },
+              "queryRef": "ACD Trend Data..M_STA",
+              "nativeQueryRef": ".M_SpeedToAnswer"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

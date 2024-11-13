@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.2.0/schema.json",
+  "name": "529ae51b3589e7eaf673",
+  "position": {
+    "x": 96,
+    "y": 208,
+    "z": 0,
+    "height": 176,
+    "width": 288,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ACD Trend Data"
+                    }
+                  },
+                  "Property": ".M_AverageHandleTime"
+                }
+              },
+              "queryRef": "ACD Trend Data..M_Duration",
+              "nativeQueryRef": "AHT",
+              "displayName": "AHT"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
